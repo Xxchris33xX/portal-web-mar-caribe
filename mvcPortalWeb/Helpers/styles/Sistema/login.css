@@ -1,0 +1,118 @@
+body{
+  padding: 0;
+  margin: 0;
+}
+
+/* FORMULARIO PARA INICIAR SESIÓN */
+.fondo{
+  background: url(../../img/Background/BG-04.jpg);
+  /* Add the blur effect */
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  
+  /* Full height */
+  height: 100vh; 
+  
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.login{
+    display: flex;
+    justify-content: center;
+  }
+
+.login .form{
+  width: 90%;
+  max-width: 400px;
+  font-family: 'Poppins', sans-serif;
+  padding: 4.5em 6em;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px 0px;
+  background-color: #F5F5F5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+}
+.form .form-content{
+  display: grid;
+  gap:2.5em;
+}
+.form .form-content .form-group{
+  position: relative;
+  --color: #5757577e;
+}
+.form .form-content .form-group .form-input{
+  width: 100%;
+  background: none;
+  padding: .6em .3em;
+  font-size: 1rem;
+  border: none;
+  outline: none; 
+  font-family: 'Poppins', sans-serif;
+  border-bottom: 1px solid var(--color);
+}
+.form .form-content .form-group .form-label{
+  color: var(--color);
+  cursor: pointer; 
+  position: absolute;
+  top: 0;
+  left: 5px;
+  transform: translateY(10px);
+  transition: transform .5s, color .3s;
+}
+.form .form-content .form-group .form-input:focus + .form-label,
+.form-group .form-input:not(:placeholder-shown) + .form-label{
+  transform: translateY(-12px) scale(.7);
+  transform-origin: left top;
+  color: #3866f2;
+}
+.form .form-content .form-btn{
+  background-color: #3866f2;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  padding: .8em 0;
+  border:none;
+  border-radius: .5em;
+  cursor: pointer;
+}
+.form .form-content .form-group .form-line{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #3866f2;
+  transform: scale(0);
+  transform: left bottom;
+  transition: transform .4s;
+}
+
+.form .form-content .form-group .form-input:focus ~ .form-line,
+.form .form-content .form-group .form-input:not(:first-child) ~ .form-line{
+  transform: scale(1);
+}
+.form .form-content .form-group .form-label.categoria{
+  display: flex;
+}
+.form .form-content .form-group .form-label > .form-select{ 
+  color: black;
+  padding: .5em 1em;
+  margin-top: -10%;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  border: none;
+}
+.form .form-content .form-group .form-label > .form-select:focus{ 
+  border: thin solid blue;
+}
+.form .form-content .form-group .form-label .form-select{ 
+  margin-left: 50%;
+  margin-bottom: 1em;
+}

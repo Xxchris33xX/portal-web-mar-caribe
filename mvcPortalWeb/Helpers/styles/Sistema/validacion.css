@@ -1,0 +1,76 @@
+.formulario__input-error,.formulario__input-error-name {
+	font-size: 16px;
+	margin-bottom: 0;
+	display: none;
+}
+
+
+
+.formulario__input-error-activo {
+	display: block;
+	color: #bb2929;
+}
+.formulario__grupo-correcto .formulario__validacion-estado {
+	color: #1ed12d;
+	opacity: 1;
+}
+
+.formulario__grupo-incorrecto .form-label {
+	color: #bb2929;
+}
+
+.formulario__grupo-incorrecto .formulario__validacion-estado {
+	color: #bb2929;
+	opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__input{
+	border: 3px solid #bb2929;
+}
+
+.Consultar-Producto .modal-edit .modal-contenedor .formulario__input-error{
+	font-size: 16px;
+}
+
+.modal-salida .modal-contenedor .formulario__input-error{
+	font-size: 16px;
+}
+
+.modal-entrada .modal-contenedor .formulario__input-error{
+	font-size: 16px;
+	color: #bb2929;
+}
+
+.modal-entrada .modal-contenedor .form-group.formulario__grupo-incorrecto .formulario__input{
+	border: 3px solid #bb2929;
+}
+.Consultar-entradas .modal-entrada .modal-contenedor .form .form-content .form-group.formulario__grupo-incorrecto .form-line{
+	background-color: #bb2929;
+}
+
+.Consultar-entradas .modal-entrada .modal-contenedor .form .form-content .form-group.formulario__grupo-incorrect .form-input:focus + .form-label, 
+.Consultar-entradas .modal-entrada .modal-contenedor .form-group.formulario__grupo-incorrect .form-input:not(:placeholder-shown) + .form-label{
+	color: #bb2929;
+}
+
+.Consultar-entradas .modal-entrada .modal-contenedor .form .form-content .form-group.formulario__grupo-incorrect .form-label{
+	color: #bb2929;
+}
+
+.modal-entrada .modal-contenedor .form .form-content .form-group.formulario__grupo-incorrecto .form-input:focus + .form-label,
+.modal-entrada .modal-contenedor .form .form-group.formulario__grupo-incorrecto .form-input:not(:placeholder-shown) + .form-label{
+    color: #bb2929;
+  }
+
+.form .form-content.formulario__grupo-incorrecto .form-group-contact .form-div .form-input:focus + .form-label, 
+.form .form-content.formulario__grupo-incorrecto .form-group-contact .form-div .form-input:not(:placeholder-shown) + .form-label{
+	color: #bb2929;
+}
+
+.Consultar-usuario .modal-user .modal-contenedor .formulario__input-error{
+	font-size: 16px;
+}
+
+.Consultar-usuario .modal-edit .modal-contenedor .formulario__input-error-name{
+	font-size: 16px;
+}

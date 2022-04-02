@@ -1,0 +1,231 @@
+/* Header-Shop */
+.shop-header{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 50px 1fr 1fr;
+    height: 250px;
+    padding-left: 20px;
+    gap: 20px;
+    margin-top: 10%;
+
+}
+
+.shop-header.open{
+    margin-top: 10%;
+}
+
+/* Item-header */
+
+.shop-header-item1{
+    color: black;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    align-self: right;
+}
+
+.shop-header-item1 h3{
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.shop-header-item1 h3 a{
+    color: black;
+    font-family: "Poppins", Arial, sans-serif;
+}
+
+.shop-header-item1 span{
+    color:  darkgoldenrod;
+    font-family: "Poppins", Arial, sans-serif;
+}
+
+.shop-header-item2{
+    font-family: 'Playfair Display',serif;
+    grid-column: 1/3;
+    grid-row: 2/3;
+    letter-spacing: -.03em;
+}
+
+.shop-header-item2 h1{
+    font-family: 'Playfair Display',serif;
+    font-weight: 500;
+    letter-spacing: -.03em;
+    line-height: 1.2em;
+    font-size: 2.5em;
+    padding: 20px;
+}
+
+.shop-header-item3{
+    grid-column: 1/2;
+    grid-row: 3/4;
+}
+
+.shop-header-item3 p{
+    font-size: 24px;
+    color:  darkgoldenrod;
+    padding-left: 20px;
+}
+
+.shop-header-item4{
+    grid-column: 3/4;
+    grid-row: 3/4;
+    padding-bottom: 20px;
+    padding-left: 40px;
+}
+
+.shop-header-item4 select{
+    width: 150px;
+    height: 100%;
+    font-weight: 700;
+    border-color: darkgoldenrod;
+    color: darkgoldenrod;
+    font-family: "Playfair Display", serif;
+    font-size: 16px;
+    padding-left: 25px;
+}
+.ordenar{
+    width: 150px;
+    height: 100%;
+    border-color: darkgoldenrod;
+    color: darkgoldenrod;
+    font-family: "Playfair Display", serif;
+    font-size: 16px;
+}
+
+/*CATALOGO*/
+
+.product{
+    height: auto;
+    margin: 0px;
+    padding-bottom: 60px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.product__img{
+    height: 250px;
+    margin-top: 0px;
+    padding-bottom: 20px;
+}
+
+.catalogo-product{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 40px;
+    padding-top: 0px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.product__title{
+    color: black;
+    font-family: 'Playfair Display',serif;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: normal;
+    padding-bottom: 10px;
+}
+.producto__price{
+    color: darkgoldenrod;
+    font-family: 'Playfair Display',serif;
+    font-weight: 700;
+    padding-bottom: 20px;
+}   
+.producto__price span{
+    font-size: 20px;
+    color:darkgoldenrod;
+}   
+
+.boton-producto{
+    margin-top: 20px;
+    padding: 10px;
+    color: black;
+    font-size: 12px;
+    font-weight: 700;
+    border: 1px solid #c59d5f;
+    font-family: "Poppins", Arial, sans-serif;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.boton-producto:hover{
+    color: white;
+    background-color: darkgoldenrod;
+    transition: 0.5s;
+}
+
+.boton-producto:active{
+    color: black;
+    background-color: darkgoldenrod;
+    transition: 0.5s;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1024px) {
+    .catalogo-product.openCart{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        transition: all 0.5s;
+    }
+    
+}
+
+@media (max-width: 768px) {
+
+    .catalogo-product{
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    .catalogo-product.openCart{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        transition: all 0.5s;
+    }
+    
+    .page.open  .shop-header{
+        margin-top: 15%;
+    }
+    .page.open  .shop-header .shop-header-item1{
+        grid-column: 1/4;
+        grid-row: 1/2;
+    }
+}
+
+@media (max-width: 425px){
+    .shop-header{
+        margin-top: 20%;
+    }
+    .catalogo-product{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .shop-header-item1{
+        grid-column: 1/4;
+        grid-row: 1/2;
+    }
+}
+
+@media (max-width: 375px){
+    .catalogo-product{
+        column-gap: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 320px){
+    .shop-header{
+        gap: 0px;
+    }
+    .shop-header-item4{
+        padding-bottom: 0px; 
+        padding-left: 0px;
+    }
+    .shop-header-item4 select{
+        height: 50px;
+        padding-left: 0px;
+        text-align:center;
+    }
+    .catalogo-product {
+        grid-template-columns: repeat(1,1fr);
+    }
+}
