@@ -16,6 +16,7 @@
     overflow-y: scroll;
     height: 700px;
     border-radius: 4px 2px;
+  
   }
 
   .table.table-entradas,.table.table-salidas{
@@ -94,6 +95,7 @@
     font-weight: bold;
     color: #009879;
   }
+
   
   /* TABLAS ENTRADAS */
 
