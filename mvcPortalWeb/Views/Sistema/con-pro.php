@@ -5,6 +5,10 @@
     
         $datos = $pro ->get_producto();
         $categoria = $pro ->get_categoria();
+        if(isset ($_POST["borrar"]) && $_POST["borrar"] == "true"){
+          $pro -> delete_producto($_GET["id"]);
+          exit;
+      }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -133,7 +137,7 @@
                             <h2>Precaución</h2>
                             <i class='bx bxs-x-circle'></i>
                             <p>Está apunto de desactivar el producto, esto hará que no se muestre en el catálogo.<br> ¿Está seguro de realizar esta acción?</p>
-                            <span class="botones"><label for="btn-modal-eliminar">No realizar esta acción</label><a class="confirmar">Confirmar acción</a></span>
+                            <span class="botones"><label for="btn-modal-eliminar">No realizar esta acción</label><a class="confirmar" onclick=" eliminar ('delete.php?id=<?php echo $datos [$i] ['id_producto'];?>'>Confirmar acción</a></span>
                         </div>
                       </section>
                     </div>

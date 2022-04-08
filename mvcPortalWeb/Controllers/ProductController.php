@@ -59,7 +59,7 @@ class producto {
 
     public function create_producto(){
         print_r($_POST);
-        if(empty($_POST["Nombre"]) 
+        if(empty($_POST["Nom_producto"]) 
         or empty($_POST["Categoria"])
         or empty($_POST["Imagen"])
         or empty($_POST["Cantidad"]) 
@@ -72,8 +72,8 @@ class producto {
         else
         $sql = "INSERT INTO producto VALUES (default,?,?,?,?,?,?,?);";
         $stmt = $this->conn->prepare ($sql);
-        $stmt -> BindValue(1, $_POST["Nombre"], PDO::PARAM_STR);
-        $stmt -> BindValue(2, "null", PDO::PARAM_STR);
+        $stmt -> BindValue(1, $_POST["Nom_producto"], PDO::PARAM_STR);
+        $stmt -> BindValue(2, "Producto de Mar Caribe Center", PDO::PARAM_STR);
         $stmt -> BindValue(3, $_POST["Imagen"], PDO::PARAM_STR);
         $stmt -> BindValue(4, $_POST["Precio"], PDO::PARAM_STR);
         $stmt -> BindValue(5, $_POST["Cantidad"], PDO::PARAM_STR);
@@ -87,7 +87,7 @@ class producto {
 
     public function edit_producto(){
         print_r($_POST);
-        if(empty($_POST["Nombre"]) 
+        if(empty($_POST["Nom_producto"]) 
         or empty($_POST["Categoria"])
         or empty($_POST["Imagen"])
         or empty($_POST["Cantidad"]) 
@@ -113,7 +113,7 @@ class producto {
             ";
         $stmt = $this->conn->prepare ($sql);
         $stmt -> BindValue(1, $_POST["Nombre"], PDO::PARAM_STR);
-        $stmt -> BindValue(2, "null", PDO::PARAM_STR);
+        $stmt -> BindValue(2, "Producto de Mar Caribe Center", PDO::PARAM_STR);
         $stmt -> BindValue(3, $_POST["Imagen"], PDO::PARAM_STR);
         $stmt -> BindValue(4, $_POST["Precio"], PDO::PARAM_STR);
         $stmt -> BindValue(5, $_POST["Cantidad"], PDO::PARAM_STR);

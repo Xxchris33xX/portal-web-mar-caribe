@@ -139,7 +139,7 @@
                 <!-- INPUT ROL -->
                 <div class="form-div">
                   <label for="" class="form-label categoria" type="text">Rol:
-                    <select id="categorias" class="form-select" name="Rol">
+                    <select id="categorias" class="form-select" name="Rol_usuario">
                       <?php
         $datos = $user -> get_rol();
         for($i=0;$i<sizeof($datos);$i++){ ?>

@@ -94,7 +94,7 @@
                 <div class="form-content">
                   <!-- NOMBRE PRODUCTO -->
                   <div class="form-group" id="grupo__producto">
-                    <input type="text" class="form-input" placeholder=" " name="Nombre">
+                    <input type="text" class="form-input" placeholder=" " name="Nom_producto">
                     <label for="" class="form-label" type="text">Nombre:</label>
                     <span class="form-line"></span>
                     <p class="formulario__input-error">El producto tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
