@@ -1,13 +1,3 @@
-<?php
-    //ARCHIVO DE CONEXIÓN
-    include_once ("../../Controllers/ProductController.php");
-    $pro = new producto();
-    if(isset ($_POST["grabar"]) && $_POST["grabar"] == "true"){
-        $pro -> create_producto();
-        exit;
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,38 +22,38 @@
       </div>
       <ul class="nav-links">
           <li>
-              <a href="dashboard.php">
+              <a href="../../Controllers/Sistema/dasboardController.php">
                   <i class='bx bxs-dashboard' ></i>
                   <span class="link_name">Dashboard</span>
               </a>
           </li>
           <li>
             <div class="iocn-link">
-              <a href="con-pro.php">
+              <a href="../../Controllers/Sistema/con-proController.php">
                   <i class='bx bx-basket'></i>
                   <span class="link_name">Consultar Productos</span>
               </a>
               <i class='bx bxs-chevron-down arrow' ></i>
             </div>
             <ul class="sub-menu">
-              <li><a class="link_name" href="con-pro.php">Consultar Productos</a></li>
-              <li><a href="reg-pro.php">Agregar Producto</a></li>
-              <li><a href="con-int.php">Consultar Entrada</a></li>
-              <li><a href="con-out.php">Consultar Salida</a></li>
-              <li><a href="con-ofer.php">Agregar Promoción</a></li>
+              <li><a class="link_name" href="../../Controllers/Sistema/con-proController.php">Consultar Productos</a></li>
+              <li><a href="../../Controllers/Sistema/reg-proController.php">Agregar Producto</a></li>
+              <li><a href="../../Controllers/Sistema/con-intController.php">Consultar Entrada</a></li>
+              <li><a href="../../Controllers/Sistema/con-outController.php">Consultar Salida</a></li>
+              <li><a href="../../Controllers/Sistema/con-oferController.php">Agregar Promoción</a></li>
             </ul>
           </li>
         <li>
           <div class="iocn-link">
-            <a href="con-user.php">
+            <a href="../../Controllers/Sistema/con-userController.php">
               <i class='bx bx-user' ></i>
               <span class="link_name">Consultar Usuarios</span>
             </a>
             <i class='bx bxs-chevron-down arrow' ></i>
           </div>
           <ul class="sub-menu">
-              <li><a class="link_name" href="con-user.php">Consultar Usuarios</a></li>
-              <li><a href="reg-user.php">Agregar Usuario</a></li>
+              <li><a class="link_name" href="../../Controllers/Sistema/con-userController.php">Consultar Usuarios</a></li>
+              <li><a href="../../Controllers/Sistema/reg-userController.php">Agregar Usuario</a></li>
           </ul>
         </li>
       <li> 

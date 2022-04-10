@@ -20,38 +20,38 @@
         </div>
         <ul class="nav-links">
             <li>
-                <a href="dashboard.php">
+                <a href="../../Controllers/Sistema/dasboardController.php">
                     <i class='bx bxs-dashboard' ></i>
                     <span class="link_name">Dashboard</span>
                 </a>
             </li>
             <li>
               <div class="iocn-link">
-                <a href="con-pro.php">
+                <a href="../../Controllers/Sistema/con-proController.php">
                     <i class='bx bx-basket'></i>
                     <span class="link_name">Consultar Productos</span>
                 </a>
                 <i class='bx bxs-chevron-down arrow' ></i>
               </div>
               <ul class="sub-menu">
-                <li><a class="link_name" href="con-pro.php">Consultar Productos</a></li>
-                <li><a href="reg-pro.php">Agregar Producto</a></li>
-                <li><a href="con-int.php">Consultar Entrada</a></li>
-                <li><a href="con-out.php">Consultar Salida</a></li>
-                <li><a href="con-ofer.php">Agregar Promoción</a></li>
+                <li><a class="link_name" href="../../Controllers/Sistema/con-proController.php">Consultar Productos</a></li>
+                <li><a href="../../Controllers/Sistema/reg-proController.php">Agregar Producto</a></li>
+                <li><a href="../../Controllers/Sistema/con-intController.php">Consultar Entrada</a></li>
+                <li><a href="../../Controllers/Sistema/con-outController.php">Consultar Salida</a></li>
+                <li><a href="../../Controllers/Sistema/con-oferController.php">Agregar Promoción</a></li>
               </ul>
             </li>
           <li>
             <div class="iocn-link">
-              <a href="con-user.php">
+              <a href="../../Controllers/Sistema/con-userController.php">
                 <i class='bx bx-user' ></i>
                 <span class="link_name">Consultar Usuarios</span>
               </a>
               <i class='bx bxs-chevron-down arrow' ></i>
             </div>
             <ul class="sub-menu">
-                <li><a class="link_name" href="con-user.php">Consultar Usuarios</a></li>
-                <li><a href="reg-user.php">Agregar Usuario</a></li>
+                <li><a class="link_name" href="../../Controllers/Sistema/con-userController.php">Consultar Usuarios</a></li>
+                <li><a href="../../Controllers/Sistema/reg-userController.php">Agregar Usuario</a></li>
             </ul>
           </li>
         <li> 
@@ -77,18 +77,20 @@
             <div class="menu-section">
                 <span class="current-section">Dashboard</span>
             </div>
+            <?php for($i=0;$i<sizeof($datos);$i++){ $i; } ?>
             <div class="Dashboard">
                 <div class="Sistema-Usuarios">
-                    <h3>44</h3>
+                    <h3><?php echo ($i);?></h3>
                     <i class='bx bx-user'></i>
                     <p class="text">Usuarios registrados</p>
-                    <a href="con-user.php"> Más información </a>
+                    <a href="../../Controllers/Sistema/con-userController.php"> Más información </a>
                 </div>
-                <div class="Sistema-Productos">
-                    <h3>44</h3>
+                <?php for($i1=0;$i1<sizeof($datos1);$i1++){ $i1; } ?>
+                <div class="Sistema-Productos"> 
+                    <h3><?php echo ($i1);?></h3>
                     <i class='bx bx-basket'></i>
                     <p class="text">Productos registrados</p>
-                    <a href="con-pro.php"> Más información </a>
+                    <a href="../../Controllers/Sistema/con-proController.php"> Más información </a>
                 </div>
                 <div class="Sistema-Visitas">
                     <h3>44</h3>

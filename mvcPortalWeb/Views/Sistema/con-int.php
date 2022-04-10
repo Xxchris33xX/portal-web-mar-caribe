@@ -24,38 +24,38 @@
         </div>
         <ul class="nav-links">
             <li>
-                <a href="dashboard.php">
+                <a href="../../Controllers/Sistema/dasboardController.php">
                     <i class='bx bxs-dashboard' ></i>
                     <span class="link_name">Dashboard</span>
                 </a>
             </li>
             <li>
               <div class="iocn-link">
-                <a href="con-pro.php">
+                <a href="../../Controllers/Sistema/con-proController.php">
                     <i class='bx bx-basket'></i>
                     <span class="link_name">Consultar Productos</span>
                 </a>
                 <i class='bx bxs-chevron-down arrow' ></i>
               </div>
               <ul class="sub-menu">
-                <li><a class="link_name" href="con-pro.php">Consultar Productos</a></li>
-                <li><a href="reg-pro.php">Agregar Producto</a></li>
-                <li><a href="con-int.php">Consultar Entrada</a></li>
-                <li><a href="con-out.php">Consultar Salida</a></li>
-                <li><a href="con-ofer.php">Agregar Promoción</a></li>
+                <li><a class="link_name" href="../../Controllers/Sistema/con-proController.php">Consultar Productos</a></li>
+                <li><a href="../../Controllers/Sistema/reg-proController.php">Agregar Producto</a></li>
+                <li><a href="../../Controllers/Sistema/con-intController.php">Consultar Entrada</a></li>
+                <li><a href="../../Controllers/Sistema/con-outController.php">Consultar Salida</a></li>
+                <li><a href="../../Controllers/Sistema/con-oferController.php">Agregar Promoción</a></li>
               </ul>
             </li>
           <li>
             <div class="iocn-link">
-              <a href="con-user.php">
+              <a href="../../Controllers/Sistema/con-userController.php">
                 <i class='bx bx-user' ></i>
                 <span class="link_name">Consultar Usuarios</span>
               </a>
               <i class='bx bxs-chevron-down arrow' ></i>
             </div>
             <ul class="sub-menu">
-                <li><a class="link_name" href="con-user.php">Consultar Usuarios</a></li>
-                <li><a href="reg-user.php">Agregar Usuario</a></li>
+                <li><a class="link_name" href="../../Controllers/Sistema/con-userController.php">Consultar Usuarios</a></li>
+                <li><a href="../../Controllers/Sistema/reg-userController.php">Agregar Usuario</a></li>
             </ul>
           </li>
         <li> 
@@ -166,30 +166,24 @@
                               <label for="btn-modal-entrada" class="denegar"><i class='bx bx-x-circle'></i></label>
                               <h2>Registrar Entrada</h2><span class="botones">
                               <div class="Registrar-Entrada">
-                                <form action="" class="form">
+                                <form action="../../Models/EntradaModel.php" method="POST" class="form">
                                   <div class="form-content">
                                     <!-- INPUT NOMBRE-->
                                     <div class="containerSelectProduct">
                                       <div class="select-box">
                                         <div class="options-container">
+                                        <?php for($i=0;$i<sizeof($datos);$i++){ ?>
                                           <div class="option">
                                             <input 
                                             type="radio"
                                             id=""
                                             class="radio"
-                                            name=""
+                                            name="Nombre"
+                                            value="<?php echo $datos [$i] ["nombre"];?>"
                                             />
-                                            <label for="">Producto</label>
+                                            <label for=""><?php echo $datos [$i] ["nombre"];?></label>
                                           </div>
-                                          <div class="option">
-                                            <input 
-                                            type="radio"
-                                            id=""
-                                            class="radio"
-                                            name=""
-                                            />
-                                          <label for="">Producto</label>
-                                          </div>
+                                          <?php } ?>
                                         </div>
                                         <div class="selected">
                                           Seleccionar un producto <i class='bx bx-chevron-down'></i>
@@ -201,20 +195,11 @@
                                     </div>
                                     <div class="form-group">
                                       <!-- INPUT CANTIDAD -->
-                                      <input type="number" class="form-input" placeholder=" ">
+                                      <input type="number" class="form-input" name="Cantidad" placeholder=" ">
                                       <label for="" class="form-label" type="number">Cantidad:</label>
                                       <span class="form-line"></span>
                                     </div>
                                     <div class="form-group">
-                                      <!-- INPUT FECHA -->
-                                      <label for="Ingreso">Fecha de Ingreso:</label>
-                                      <input type="date" id="" name="">
-                                    </div>
-                                    <div class="form-group">
-                                      <!-- INPUT HORA -->
-                                      <label for="appt">Selecciona hora:</label>
-                                      <input type="time" id="appt" name="appt">
-                                    </div>
                                     <input type="submit" class="form-btn" value="Confirmar">
                                     </div>  
                                 </form>
