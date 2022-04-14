@@ -1,7 +1,8 @@
 <?php
 //print_r($_POST);
+//print_r($_GET);
 require_once 'Model.php';
-class productModel extends Model
+class ProductModel extends Model
 {
     public function __construct()
     {

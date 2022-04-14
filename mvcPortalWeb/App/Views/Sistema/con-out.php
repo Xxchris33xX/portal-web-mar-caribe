@@ -89,37 +89,20 @@
                           <thead>
                             <tr>
                                 <th>Código</th>
-                                <th>Nombre</th>
+                                <th>Producto</th>
                                 <th>Cantidad</th>
-                                <th>Fecha</th>
-                                <th>Hora</th>
-                                <th>Acciones</th>
+                                <th>Fecha y Hora</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th>Código</th>
-                                <th>Nombre</th>
-                                <th>Cantidad</th>
-                                <th>Fecha</th>
-                                <th>Hora</th>
-                              <th>
-                                <label class="botones-direc" for="btn-modal-edit"><i class='bx bxs-edit'></i><span class="btn-editar">Editar</span></label>
-                                <label class="botones-direc" for="btn-modal-eliminar"><i class='bx bx-x'></i><span class="btn-eliminar">Eliminar</span></label>
-                              </th>
-
-                            </tr>
-                            <tr>
-                                <th>Código</th>
-                                <th>Nombre</th>
-                                <th>Cantidad</th>
-                                <th>Fecha</th>
-                                <th>Hora</th>
-                              <th>
-                                <label class="botones-direc" for="btn-modal-edit"><i class='bx bxs-edit'></i><span class="btn-editar">Editar</span></label>
-                                <label class="botones-direc" for="btn-modal-eliminar"><i class='bx bx-x'></i><span class="btn-eliminar">Eliminar</span></label>
-                              </th>
-                            </tr>
+                        <?php for($i=0;$i<sizeof($salida);$i++){ ?>
+                                <tr>
+                                  <th><?php echo "OUT-". $salida [$i] ["id_salida"];?></th>
+                                  <th><?php echo $salida [$i] ["nombre"];?></th>
+                                  <th><?php echo '- '. $salida [$i] ["cantidad_salida"] .' Unidades';?></th>
+                                  <th><?php echo $salida [$i] ["fecha_hora"];?></th>
+                                </tr>
+                                <?php } ?>
                           </tbody>
                         </table>
                       </div>
@@ -130,29 +113,18 @@
                           <label for="btn-modal-salida" class="denegar"><i class='bx bx-x-circle'></i></label>
                           <h2>Registrar Salida</h2><span class="botones">
                           <div class="Registrar-Salida">
-                            <form action="" class="form">
+                            <form action="" method="POST" class="form">
                               <div class="form-content">
                                 <!-- INPUT NOMBRE-->
                                 <div class="containerSelectProduct">
-                                  <div class="select-box">
-                                    <div class="options-container">
-                                      <div class="option">
-                                        <input 
-                                        type="radio"
-                                        id=""
-                                        class="radio"
-                                        name=""
-                                        />
-                                        <label for="">Producto</label>
-                                      </div>
-                                      <div class="option">
-                                        <input 
-                                        type="radio"
-                                        id=""
-                                        class="radio"
-                                        name=""
-                                        />
-                                      <label for="">Producto</label>
+                                      <div class="select-box">
+                                        <div class="options-container">
+                                          <div class="option">
+                                          <select id="" class="form-select" name="id">
+                                            <?php for($i=0;$i<sizeof($datos);$i++){ ?>
+                                            <option value="<?php echo $datos [$i] ["id_producto"];?>" ><?php echo $datos [$i] ["nombre"];?></option>
+                                            <?php } ?>
+                                            </select>
                                       </div>
                                     </div>
                                     <div class="selected">
@@ -165,20 +137,13 @@
                                 </div>
                                 <div class="form-group">
                                   <!-- INPUT CANTIDAD -->
-                                  <input type="number" class="form-input" placeholder=" ">
+                                  <input type="number" class="form-input" name="Cantidad" placeholder=" ">
                                   <label for="" class="form-label" type="number">Cantidad:</label>
                                   <span class="form-line"></span>
                                 </div>
-                                <div class="form-group">
-                                  <!-- INPUT FECHA -->
-                                  <label for="Ingreso">Fecha de Ingreso:</label>
-                                  <input type="date" id="" name="">
                                 </div>
                                 <div class="form-group">
-                                  <!-- INPUT HORA -->
-                                  <label for="appt">Selecciona hora:</label>
-                                  <input type="time" id="appt" name="appt">
-                                </div>
+                                <input type="hidden" id="salida" name="salida" value="true">
                                 <input type="submit" class="form-btn" value="Confirmar">
                               </div>  
                             </form>

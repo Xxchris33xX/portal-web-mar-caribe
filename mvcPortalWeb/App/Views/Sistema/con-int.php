@@ -90,36 +90,20 @@
                               <thead>
                                 <tr>
                                   <th>Código</th>
-                                  <th>Nombre</th>
+                                  <th>Producto</th>
                                   <th>Cantidad</th>
-                                  <th>Fecha</th>
-                                  <th>Hora</th>
-                                  <th>Acciones</th>
+                                  <th>Fecha y Hora</th>
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php for($i=0;$i<sizeof($entrada);$i++){ ?>
                                 <tr>
-                                  <th>Código</th>
-                                  <th>Nombre</th>
-                                  <th>Cantidad</th>
-                                  <th>Fecha</th>
-                                  <th>Hora</th>
-                                  <th>
-                                    <label class="botones-direc" for="btn-modal-edit"><i class='bx bxs-edit'></i><span class="btn-editar">Editar</span></label>
-                                    <label class="botones-direc" for="btn-modal-eliminar"><i class='bx bx-x'></i><span class="btn-eliminar">Eliminar</span></label>
-                                  </th>
+                                  <th><?php echo "INT-". $entrada [$i] ["id_entrada"];?></th>
+                                  <th><?php echo $entrada [$i] ["nombre"];?></th>
+                                  <th><?php echo '+ '.$entrada [$i] ["cantidad_entrada"].' Unidades';?></th>
+                                  <th><?php echo $entrada [$i] ["fecha_hora"];?></th>
                                 </tr>
-                                <tr>
-                                  <th>Código</th>
-                                  <th>Nombre</th>
-                                  <th>Cantidad</th>
-                                  <th>Fecha</th>
-                                  <th>Hora</th>
-                                  <th>
-                                    <label class="botones-direc" for="btn-modal-edit"><i class='bx bxs-edit'></i><span class="btn-editar">Editar</span></label>
-                                    <label class="botones-direc" for="btn-modal-eliminar"><i class='bx bx-x'></i><span class="btn-eliminar">Eliminar</span></label>
-                                  </th>
-                                </tr>
+                                <?php } ?>
                               </tbody>
                             </table>
                           </div>
@@ -166,24 +150,20 @@
                               <label for="btn-modal-entrada" class="denegar"><i class='bx bx-x-circle'></i></label>
                               <h2>Registrar Entrada</h2><span class="botones">
                               <div class="Registrar-Entrada">
-                                <form action="../../Models/EntradaModel.php" method="POST" class="form">
+                                <form action="" method="POST" class="form">
                                   <div class="form-content">
                                     <!-- INPUT NOMBRE-->
                                     <div class="containerSelectProduct">
                                       <div class="select-box">
                                         <div class="options-container">
-                                        <?php for($i=0;$i<sizeof($datos);$i++){ ?>
                                           <div class="option">
-                                            <input 
-                                            type="radio"
-                                            id=""
-                                            class="radio"
-                                            name="Nombre"
-                                            value="<?php echo $datos [$i] ["nombre"];?>"
-                                            />
-                                            <label for=""><?php echo $datos [$i] ["nombre"];?></label>
+                                          <select id="" class="form-select" name="id">
+                                            <?php for($i=0;$i<sizeof($datos);$i++){ ?>
+                                            <option value="<?php echo $datos [$i] ["id_producto"];?>" ><?php echo $datos [$i] ["nombre"];?></option>
+                                            <?php } ?>
+                                            </select>
                                           </div>
-                                          <?php } ?>
+            
                                         </div>
                                         <div class="selected">
                                           Seleccionar un producto <i class='bx bx-chevron-down'></i>
@@ -200,6 +180,7 @@
                                       <span class="form-line"></span>
                                     </div>
                                     <div class="form-group">
+                                    <input type="hidden" id="entrada" name="entrada" value="true">
                                     <input type="submit" class="form-btn" value="Confirmar">
                                     </div>  
                                 </form>

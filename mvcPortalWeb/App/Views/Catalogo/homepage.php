@@ -24,6 +24,7 @@
                         <li class="menu-item5"><a><i class='bx bx-search' ></i></a></li>
                         <li class="menu-item6"><a><i class='bx bxs-cart'></i></a></li>
                         <li class="menu-item7"><a><i class='bx bxs-chevron-down'></i></a></li>
+                        <li class="menu-item8"><a href="../../Controllers/Sistema/dashboardController.php"><i class='bx bxs-user'></i></a></li>
                     </ul>
                     <ul class="nav-responsive">
                         <li class="res-menu-item2"><a href="../../Controllers/catalogo/homepageController.php">Inicio</a></li>

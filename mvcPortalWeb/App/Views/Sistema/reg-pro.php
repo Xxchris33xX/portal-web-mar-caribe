@@ -94,7 +94,6 @@
                     <label for="" class="form-label categoria" type="text">Categoría:
                       <select id="categorias" class="form-select" name="Categoria">
                       <?php
-        $datos = $pro -> get_categoria();
         for($i=0;$i<sizeof($datos);$i++){ ?>
                         <option value="<?php echo $datos [$i] ["id_categoria"];?>"><?php echo $datos [$i] ["nom_categoria"];?></option>
                         <?php } ?>

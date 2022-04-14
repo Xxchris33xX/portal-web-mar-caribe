@@ -1,8 +1,8 @@
 <?php
     require('../../Models/UserModel.php');
-    $user = new usuario();
+    $user = new UserModel();
     
-        $datos = $user ->get_usuario();
+        $datos = $user ->getUser();
         $rol = $user ->get_rol();
     require('../../Views/Sistema/con-user.php');
 ?>

@@ -107,7 +107,7 @@
                               <th>
                                 <label class="botones-direc" for="btn-modal-descripción"><i class='bx bxs-book-content'></i></label>
                               </th>
-                              <th><img height="125" width="auto" src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/img/Productos/<?php echo $datos [$i] ["imagen"];?>"> </th>
+                              <th><img height="75" width="auto" src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/img/Productos/<?php echo $datos [$i] ["imagen"];?>"> </th>
                               <th><?php echo $datos [$i] ["nom_estatus"];?></th>
                               <th>
                                 <label class="botones-direc" for="btn-modal-edit"><i class='bx bxs-edit'></i><span class="btn-editar">Editar</span></label>

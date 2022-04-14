@@ -1,27 +1,16 @@
 <?php
 //print_r($_POST);
-class usuario {
+require_once 'Model.php';
+class UserModel extends Model{
 
-    private $conn;
-    private $n;
     private $r;
 
-    public function __construct(){
-    try {
-        $this -> conn = new PDO (
-        "pgsql:host=localhost; 
-        dbname=TiendaMarCaribeCenter", 
-        "admin", 
-        "admin");
-        $this -> n = array();
-        //echo "Se conecto a la base de datos";
-        }
-    catch( PDOException $exp){
-        echo ("No se logro conectar a la base de datos correctamente, $exp");
-        }
+    public function __construct()
+    {
+        parent::__construct();
     }
 
-    public function get_usuario(){
+    public function getUser(){
         $sql="SELECT * FROM usuario 
             LEFT JOIN rol 
             ON usuario.rol_usuario=rol.id_rol

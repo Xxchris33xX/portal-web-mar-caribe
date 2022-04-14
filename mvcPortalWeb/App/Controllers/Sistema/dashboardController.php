@@ -1,7 +1,7 @@
 <?php
   require('../../Models/UserModel.php');
-  $user = new usuario();
-  $datos = $user ->get_usuario();
+  $user = new UserModel();
+  $datos = $user ->getUser();
   require('../../Models/ProductModel.php');
   $pro = new productModel();
   $datos1 = $pro ->getProduct();
