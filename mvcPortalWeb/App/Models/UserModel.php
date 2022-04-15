@@ -53,7 +53,7 @@ class UserModel extends Model{
         if(
         empty($_POST["Nombre"])
         or empty($_POST["Apellido"]) 
-        or empty($_POST["Nom_usuario"]) 
+        or empty($_POST["username"]) 
         or empty($_POST["Cedula"]) 
         or empty($_POST["Estatus"]) 
         or empty($_POST["Contrasenia"]) 
@@ -69,7 +69,7 @@ class UserModel extends Model{
         else
         $sql = "INSERT INTO usuario VALUES (default,?,?,?,?);";
             $stmt = $this->conn->prepare ($sql);
-            $stmt -> BindValue(1, $_POST["Nom_usuario"], PDO::PARAM_STR);
+            $stmt -> BindValue(1, $_POST["username"], PDO::PARAM_STR);
             $stmt -> BindValue(2, $_POST["Contrasenia"], PDO::PARAM_STR);
             $stmt -> BindValue(3, $_POST["Rol_usuario"], PDO::PARAM_STR);
             $stmt -> BindValue(4, $_POST["Estatus"], PDO::PARAM_STR);
@@ -109,7 +109,7 @@ class UserModel extends Model{
         print_r($_POST);
         if(empty($_POST["Estatus"]) 
         or empty($_POST["Contrasenia"]) 
-        or empty($_POST["Nom_usuario"]) 
+        or empty($_POST["username"]) 
         or empty($_POST["Tipo_de_usuario"])){
             header("location: ?m=1&id=".$_POST["id"]);
             exit;
@@ -119,7 +119,7 @@ class UserModel extends Model{
             SET
             estatus=?,
             contrasenia=?,
-            nom_usuario=?,
+            username=?,
             tipo_de_usuario=?
             WHERE
             id_usuario=?;
@@ -127,7 +127,7 @@ class UserModel extends Model{
         $stmt = $this->conn->prepare ($sql);
         $stmt -> BindValue(1, $_POST["Estatus"], PDO::PARAM_STR);
         $stmt -> BindValue(2, $_POST["Contrasenia"], PDO::PARAM_STR);
-        $stmt -> BindValue(3, $_POST["Nom_usuario"], PDO::PARAM_STR);
+        $stmt -> BindValue(3, $_POST["username"], PDO::PARAM_STR);
         $stmt -> BindValue(4, $_POST["Tipo_de_usuario"], PDO::PARAM_LOB);
         $stmt -> BindValue(7, $_POST["id"], PDO::PARAM_INT);
         

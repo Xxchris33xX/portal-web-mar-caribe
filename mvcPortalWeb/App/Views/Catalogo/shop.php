@@ -6,6 +6,7 @@
     <title>Shop</title>
     <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/styles/styles.css" rel="stylesheet" type="text/css">
     <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/styles/shop.css" rel="stylesheet" type="text/css">
+    <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/styles/filterCatalog.css" rel="stylesheet" type="text/css">
     <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/boxicons-2.1.1/css/animations.css" rel="stylesheet" type="text/css">
     <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/boxicons-2.1.1/css/boxicons.css" rel="stylesheet" type="text/css">
     <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/boxicons-2.1.1/css/boxicons.min.css" rel="stylesheet" type="text/css">
@@ -15,54 +16,101 @@
     <!-- PÁGINA -->
     <section class="page">
         <section>
-            <header class="header-nav">
-                <!-- MENÚ DE PÁGINA -->
-                <nav class="menu">
-                    <ul> 
-                        <li class="menu-item1"><a href="../../Controllers/catalogo/homepageController.php"><img src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/img/Logo/Logo.png"></a></li>
-                        <li class="menu-item2"><a href="../../Controllers/catalogo/homepageController.php">Inicio</a></li>
-                        <li class="menu-item3"><a href="../../Controllers/catalogo/aboutusController.php">Sobre Nosotros</a></li>
-                        <li class="menu-item4"><a href="../../Controllers/catalogo/shopController.php">Catálogo</a></li>
-                        <li class="menu-item5"><a><i class='bx bx-search' ></i></a></li>
-                        <li class="menu-item6"><a><i class='bx bxs-cart'></i></a></li>
-                        <li class="menu-item7"><a><i class='bx bxs-chevron-down'></i></a></li>
-                    </ul>
-                    <ul class="nav-responsive">
-                        <li class="res-menu-item2"><a href="../../Controllers/catalogo/homepageController.php">Inicio</a></li>
-                        <li class="res-menu-item3"><a href="../../Controllers/catalogo/aboutusController.php">Sobre Nosotros</a></li>
-                        <li class="res-menu-item4"><a href="../../Controllers/catalogo/shopController.php">Catálogo</a></li>
-                    </ul>
-                </nav>
-                <div class="search-bar" id="search-bar">
-                    <div  class="ctn-bars-search" id="ctn-bars-search">
-                        <input type="text" id="inputBar" placeholder="¿Qué desea buscar?">
-                    </div>
-                    <div class="ctn-bars-result">
-                        <ul id="box-search">
-                            <li><a href="../../Controllers/catalogo/homepageController.php"><i class='bx bx-search-alt'></i>Inicio</a></li>
-                            <li><a href="../../Controllers/catalogo/aboutusController.php"><i class='bx bx-search-alt'></i>Sobre Nosotros</a></li>
-                            <li><a href="../../Controllers/catalogo/shopController.php"><i class='bx bx-search-alt'></i>Catálogo</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div id="cover-ctn-search" class="cover-ctn-search"></div>
-                <!-- NAV RESPONSIVE -->
-            </header>
+        <?php require 'partials/header.php' ?>
             <main>
                 <div class="shop-header">
                     <div class="shop-header-item1"><h3><a href="../../Controllers/catalogo/homepageController.php">Inicio</a><span> / Catálogo</span></h3></div>
                     <div class="shop-header-item2"><h1>Catálogo</h1></div>
                     <div class="shop-header-item3"><p>Mostrando todos los resultados</p></div>
-                    <label class="shop-header-item4" for="Ordernar">
-                    <select id="Ordernar">
-                        <option value="Popularidad">Categoría 1</option>
-                        <option value="saab">Categoría 2</option>
-                        <option value="opel">Categoría 3</option>
-                        <option value="audi">Categoría 4</option>
-                    </select>
-                    </label> 
                 </div>
                 <div class="catalogo">
+                <div class="filterCatalog">
+                        <div class="filterTitle">
+                            <h2>Buscar producto</h2>
+                        </div>
+                        <div class="filterSearch">
+                            <div  class="ctn-bars-search" id="ctn-bars-search">
+                                <input type="text" id="inputBar" placeholder="¿Qué desea buscar?">
+                            </div>
+                            <!-- DECIDIR SI MOSTRAR EL RESULTADO DE BUSQUEDA EN OTRO DIV CON PRODUCTOS O
+                            REFRESCARLOS EN LA PANTALLA CON AJAX -->
+                        </div>
+                        <div class="filterCategory">
+                            <div class="filterTitle">
+                                <h2>Filtrar productos por categoría</h2>
+                            </div>
+                            <div class="category">
+                                <div class="containerSelectProduct">
+                                      <div class="select-box">
+                                        <div class="options-container">
+                                          <div class="option">
+                                            <input 
+                                            type="radio"
+                                            id=""
+                                            class="radio"
+                                            name=""
+                                            />
+                                            <label for="">Categoria</label>
+                                          </div>
+                                          <div class="option">
+                                            <input 
+                                            type="radio"
+                                            id=""
+                                            class="radio"
+                                            name=""
+                                            />
+                                          <label for="">Categoria</label>
+                                          </div>
+                                        </div>
+                                        <div class="selected">
+                                          Seleccionar una categoría <i class='bx bx-chevron-down'></i>
+                                        </div>
+                                        <div class="search-box">
+                                          <input type="text" placeholder="Criterio de busqueda">
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="filterCategory openFilter">
+                            <div class="filterTitle">
+                                <h2>Filtrar productos por marca</h2>
+                            </div>
+                            <div class="category">
+                                <div class="containerSelectProduct">
+                                      <div class="select-box">
+                                        <div class="options-container Mark">
+                                          <div class="option Mark">
+                                            <input 
+                                            type="radio"
+                                            id=""
+                                            class="radio"
+                                            name=""
+                                            />
+                                            <label for="">Producto</label>
+                                          </div>
+                                          <div class="option">
+                                            <input 
+                                            type="radio"
+                                            id=""
+                                            class="radio"
+                                            name=""
+                                            />
+                                          <label for="">Producto</label>
+                                          </div>
+                                        </div>
+                                        <div class="selected Mark">
+                                          Seleccionar un marca <i class='bx bx-chevron-down'></i>
+                                        </div>
+                                        <div class="search-box Mark">
+                                          <input type="text" placeholder="Criterio de busqueda">
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <i class='bx bxs-right-arrow'></i>
                     <div class="catalogo-product">
                     <?php for($i=0;$i<sizeof($datos);$i++){ ?>
                         <div class="product">
@@ -106,26 +154,8 @@
                 </div>
             </main>
         </section>    
-        <section class="shop closeShop" id="Btn-cart">
-            <div class="shop-items close">
-            <section class="header">
-                <div class="btn-close"><i class='bx bx-x'></i></div>
-            </section>
-            <section class="Container-product">
-                <div class="Product-Info">
-                    <h5>Imagen</h5>
-                    <h5>Precio</h5>
-                    <h5>Cantidad</h5>
-                </div>
-                <section class="product-container">
-                        <div class="cartcontainerempty">
-                            <h5>El carrito se encuentra vacio.<br>Si desea agregar productos diríjase al <a href="../../Controllers/catalogo/shopController.php">catálogo</a>.</h5>
-                        </div>
+        <?php require 'partials/shoppingCart.php' ?>
                 </section>
-            </section>
-            <section class="shop-resumen">
-                <p>Productos: <span class="totalProductscart"></span></p>
-                <p>Total: <span class="totalShopcart"></span></p>
             </section>
             </div>
         </section>
@@ -144,8 +174,8 @@
             </div>
             <div class="footer-About-Us">
                     <h3><a href="../../Controllers/catalogo/aboutusController.php">Sobre Nosotros</a></h3>
-                    <p>Ubicación:</p>
-                    <p>Teléfono:</p>
+                    <p>Ubicación: <?php echo $contactos ["ubicacion_tienda"];?></p>
+                    <p>Teléfono: <?php echo $contactos ["telefono_tienda"];?></p>
             </div>
             <div class="footer">
                 <p>© MarCaribe 2022</p>
@@ -155,5 +185,7 @@
     <script src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/slide/shop.js"></script>
     <script src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/slide/items.js"></script>
     <script src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/slide/search.js"></script>
+    <script src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/slide/selectBox.js"></script> 
+    <script src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/slide/filterProducts.js"></script> 
 </body>
 </html>

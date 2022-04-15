@@ -107,7 +107,7 @@
               <div class="form-group-contact">
                 <!-- INPUT NOMBRE USUARIO -->
                 <div class="form-div">
-                  <input type="text" class="form-input" placeholder=" " name="Nom_usuario">
+                  <input type="text" class="form-input" placeholder=" " name="username">
                   <label for="" class="form-label" type="text">Usuario:</label>
                 </div>  
                 <!-- INPUT CÉDULA -->

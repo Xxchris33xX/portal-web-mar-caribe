@@ -77,7 +77,7 @@
             <div class="menu-section">
                 <span class="current-section">Dashboard</span>
             </div>
-            <?php for($i=0;$i<sizeof($datos);$i++){ $i; } ?>
+            <?php for($i=0;$i<sizeof($datos);$i++)?>
             <div class="Dashboard">
                 <div class="Sistema-Usuarios">
                     <h3><?php echo ($i);?></h3>

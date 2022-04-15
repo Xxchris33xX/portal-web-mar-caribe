@@ -14,13 +14,13 @@
 .header-nav.margin-top{
     position: sticky;
     top: 0;
-    z-index: 3;
+    z-index: 12;
 }
 
 .header-nav{
     position: sticky;
     top: 0;
-    z-index: 3;
+    z-index: 12;
     margin-bottom: 0%;
 }
 /*ICONOS*/
@@ -476,7 +476,7 @@ img {
     display: grid;
     grid-column: 2;
     width: 300px;
-    z-index: 3;
+    z-index: 12;
 }
 
 .shop-items{
@@ -488,6 +488,7 @@ img {
     width: 300px;
     position: sticky;
     top: 0;
+    z-index: 12;
 }
 
 /* PAGE */
@@ -553,7 +554,7 @@ img {
 
 .product-container{
     overflow-y: scroll;
-    height: 700px;
+    height: 600px;
 }
 
 .productPrice{
@@ -751,9 +752,12 @@ img {
     .page.open .menu-item2{
         grid-column: 5;
     }
+    .page.open .header-nav{
+        margin-bottom: 7%;
+    }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 950px) {
 
     .menu.rotateBtn ul .menu-item7{
         transform: rotate(180deg);
@@ -805,7 +809,7 @@ img {
 
     .product-container {
         overflow-y: scroll;
-        height: 600px;
+        height: 450px;
     }
     .shop{
         background: #F5F5F5;
@@ -849,6 +853,193 @@ img {
         font-size: 15px;
     }
 }
+@media (max-width: 700px){
+    .menu-item2{
+        grid-column: 5;
+    }
+    .menu-item6{
+        grid-column: 10;
+    }
+}
+
+@media (max-width: 600px){
+    ul li{
+        padding: 0px;
+    }
+    .page.open .nav-responsive.OpenNav li{
+        padding: 1em;
+    }
+    .page.open .informacion div{
+        display: flex;
+        flex-direction: column;
+    }
+    .page.open .informacion div div{
+        margin-bottom: 35%;
+    }
+    .page.open .informacion{
+        margin-top: 20%;
+    }
+    .page.open .container-grid div h2{
+        margin-top: 50%;
+    }
+    .informacion{
+        margin-top: 10%;
+    }
+    .carrosel{
+        height: 100vh;
+    }
+    .centered-element{
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .vertical-center{
+        display: none;
+    }
+    .container-grid{
+        grid-template-columns: repeat(1,1fr);
+    }
+}
+
+@media (max-width: 550px){
+    ul li{
+        padding: 1em;
+    }
+    .menu-item2,.menu-item3,.menu-item4{
+        display: none;
+    }
+    .menu.rotateBtn ul .menu-item7{
+        transform: rotate(180deg);
+        transition: all 0.5s ease;
+    }
+    .menu ul{
+        grid-template-columns: repeat(4, 1fr);
+        justify-items:center;
+    }
+    .menu .nav-responsive{
+        display: grid;
+        grid-template-columns: auto;
+        margin-top: -350px;
+        z-index: 0;
+        transition: all 0.5s ease;
+    }
+    .menu .nav-responsive.OpenNav{
+        display: grid;
+        grid-template-columns: auto;
+        margin-top: 0px;
+        z-index: 3;
+        transition: all 0.5s ease;
+    }
+
+    .nav-responsive.OpenNav .menu-item7{
+        transform: rotate(180deg);
+        transition: all 0.5s ease;
+    }
+    .menu-item7{
+        display: grid;
+        transition: all 0.5s ease;
+    }
+    .menu-item6 {
+        grid-column: 3;
+      }
+    .menu-item1{
+        grid-column: 1;
+    }
+    .shop.open{
+        grid-column: 1;
+        grid-row: 1;
+        width: 300px;
+        position: sticky;
+        top: 0;
+    }
+    .shop-items{
+        position: absolute;
+        width: 550px;
+    }
+}
+
+@media (max-width: 500px){
+    ul li{
+        padding: 1em;
+    }
+    .menu-item2,.menu-item3,.menu-item4{
+        display: none;
+    }
+    .menu.rotateBtn ul .menu-item7{
+        transform: rotate(180deg);
+        transition: all 0.5s ease;
+    }
+    .menu ul{
+        grid-template-columns: repeat(4, 1fr);
+        justify-items:center;
+    }
+    .menu .nav-responsive{
+        display: grid;
+        grid-template-columns: auto;
+        margin-top: -350px;
+        z-index: 0;
+        transition: all 0.5s ease;
+    }
+    .menu .nav-responsive.OpenNav{
+        display: grid;
+        grid-template-columns: auto;
+        margin-top: 0px;
+        z-index: 3;
+        transition: all 0.5s ease;
+    }
+
+    .nav-responsive.OpenNav .menu-item7{
+        transform: rotate(180deg);
+        transition: all 0.5s ease;
+    }
+    .menu-item7{
+        display: grid;
+        transition: all 0.5s ease;
+    }
+    .menu-item6 {
+        grid-column: 3;
+      }
+    .menu-item1{
+        grid-column: 1;
+    }
+    .shop.open{
+        grid-column: 1;
+        grid-row: 1;
+        width: 300px;
+        position: sticky;
+        top: 0;
+    }
+    .shop-items{
+        position: absolute;
+        width: 500px;
+    }
+    .informacion div{
+        padding: 0px;
+    }
+    .container-grid {
+        margin-top: 5%;
+      }
+    .informacion-item2 h3{
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 450px){
+
+    .informacion div div{
+        padding: 0px;
+    }
+
+    .informacion div {
+        padding: 0px;
+        margin-top: -50px;
+    }
+
+    .container-grid {
+      margin-top: 0;
+    }  
+}
 
 @media (max-width: 425px){
     .menu.rotateBtn ul .menu-item7{
@@ -867,9 +1058,6 @@ img {
         display: none;
     }
 
-    .informacion div {
-        padding-left: 5%;
-    }
     .menu-item1{
         grid-column: 1;
     }
@@ -939,13 +1127,26 @@ img {
         grid-column: 1;
         grid-row: 1;
         width: 300px;
-        z-index: 3;
         position: sticky;
         top: 0;
     }
     .shop-items{
         position: absolute;
         width: 425px;
+    }
+}
+
+@media (max-width: 400px){
+    .shop.open{
+        grid-column: 1;
+        grid-row: 1;
+        width: 300px;
+        position: sticky;
+        top: 0;
+    }
+    .shop-items{
+        position: absolute;
+        width: 400px;
     }
 }
 
@@ -980,5 +1181,49 @@ img {
     }
     .container-footer div{
         margin-left: 0px;
+    }
+}
+
+@media (max-width: 300px){
+    .shop-items {
+        width: 300px;
+    }
+    .informacion div {
+        padding-left: 0px;
+        padding: 0px;
+      }
+      .container-grid div h2{
+        margin-top: 15%;
+    }
+}
+
+@media (max-height: 799px){
+    .product-container {
+        overflow-y: scroll;
+        height: 500px;
+    }
+}
+@media (max-height: 600px){
+    .product-container {
+        overflow-y: scroll;
+        height: 400px;
+    }
+}
+@media (max-height: 500px){
+    .product-container {
+        overflow-y: scroll;
+        height: 300px;
+    }
+}
+@media (max-height: 400px){
+    .product-container {
+        overflow-y: scroll;
+        height: 200px;
+    }
+}
+@media (max-height: 300px){
+    .product-container {
+        overflow-y: scroll;
+        height: 150px;
     }
 }

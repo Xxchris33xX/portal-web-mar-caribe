@@ -61,7 +61,7 @@ class ProductModel extends Model
         or empty($_POST["Precio"])
         or empty ($_POST["Estatus"]))
         {
-            header("location: reg-pro.php?m=1");
+            header("location: reg-proController.php?m=1");
             exit;
         }
         else
@@ -77,7 +77,7 @@ class ProductModel extends Model
 
         $stmt -> execute();
         $this->conn=null;
-        header("location: reg-pro.php?m=2");
+        header("location: reg-proController.php?m=2");
     }
 
     public function edit_producto(){
@@ -89,7 +89,7 @@ class ProductModel extends Model
         or empty($_POST["Precio"])
         or empty ($_POST["Estatus"]))
         {
-            header("location: reg-pro.php?m=1&id=".$_POST["id"]);
+            header("location: reg-proController.php?m=1&id=".$_POST["id"]);
             exit;
         }
         else
@@ -118,16 +118,17 @@ class ProductModel extends Model
         
         $stmt -> execute();
         $this->conn=null;
-        header("location: reg-pro.php?m=2&id=".$_POST["id"]);
+        header("location: reg-proController.php?m=2&id=".$_POST["id"]);
     }
 
     public function delete_producto($id){
-        $sql="DELETE  FROM producto WHERE id_producto=?";
+        $sql="UPDATE producto SET estatus=? WHERE id_producto=?";
         $stmt = $this->conn->prepare ($sql);
-        $stmt ->BindParam(1,$id);
+        $stmt ->BindParam(1,'0');
+        $stmt ->BindParam(2,$id);
         $stmt -> execute();
         $this->conn=null;
-        header("location: con-pro.php?m=1");
+        header("location: con-proController.php?m=4");
     }  
 }
 ?>

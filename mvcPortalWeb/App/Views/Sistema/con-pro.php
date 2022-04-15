@@ -14,7 +14,7 @@
     <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/boxicons-2.1.1/css/boxicons.css" rel="stylesheet" type="text/css">
     <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/boxicons-2.1.1/css/boxicons.min.css" rel="stylesheet" type="text/css">
     <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/boxicons-2.1.1/css/transformations.css" rel="stylesheet" type="text/css">
-</head>
+  </head>
 <body>
     <!-- Menú -->
     <div class="sidebar">
@@ -97,7 +97,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                          
                         <?php for($i=0;$i<sizeof($datos);$i++){ ?>
                             <tr>
                               <th><?php echo $datos [$i] ["nombre"];?></th>
@@ -125,8 +124,10 @@
                             <h2>Precaución</h2>
                             <i class='bx bxs-x-circle'></i>
                             <p>Está apunto de desactivar el producto, esto hará que no se muestre en el catálogo.<br> ¿Está seguro de realizar esta acción?</p>
-                            <span class="botones"><label for="btn-modal-eliminar">No realizar esta acción</label><a class="confirmar">Confirmar acción</a></span>
-                        </div>
+                            <?php for($i=0;$i<sizeof($datos);$i++){ ?>
+                            <span class="botones"><label for="btn-modal-eliminar">No realizar esta acción</label><a class="confirmar" href="javascript:void(0);" title="Eliminar <?php echo $datos [$i] ["nombre"];?>" onclick=" eliminar ('../../helpers/delete.php?id=<?php echo $datos [$i] ['id_producto'];?>')">Confirmar acción</a></span>
+                            <?php } ?>
+                          </div>
                       </section>
                     </div>
                     <!-- MODAL EDITAR -->
@@ -211,6 +212,7 @@
                                   </div>
                                   <input type="submit" class="form-btn" value="Confirmar">
                                 </div>  
+                                
                               </form>
                             </div>
                           </div>
@@ -219,6 +221,7 @@
                 </section>
             </section>
           </div>
+          
         </section>    
     <script src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/slide/textAreaCount.js"></script>
     <script src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/slide/menu.js"></script>

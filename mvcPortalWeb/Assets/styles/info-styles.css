@@ -3,8 +3,8 @@
     display: grid;
     grid-template-columns: auto;
     width: 100%;
-    background-color: f4f4f4;
-    text-align: center; 
+    background-color: #F5F5F5;
+    text-align: center;
 }
 
 .container-informacion div{
@@ -20,6 +20,8 @@
    height: 300px;
    background-repeat: no-repeat;
    justify-content: center;
+   position: relative;
+   overflow: hidden;
 }
 .item1-informacion h3{
     font-size: 80px;
@@ -151,100 +153,33 @@
     color: blue;
 }
 
-/*CARRUSEL*/
-/*
-.item4-informacion{
-    display: grid;
-    width: 100%;
-    background-image: url(../img/Background/img_5terre_wide.jpg);
-    background-size: 100% 100%;
-}
-
-.item4-contenedor{
-    height: 500px;
-    margin: 0 auto;
-    overflow: hidden;
-    display: grid;
-    grid-template-columns: 50px 1fr 50px;
-    align-items: center;
-}
-*/
-/* BOTONES */
-/*.boton{
-    align-self: center;
-    margin: 0px;
-    cursor: pointer;
-    width: 90%;
-}
-
-.slyde-body{
-    grid-row: 1/2;
-    grid-column: 2/3;
-    opacity: 0;
-    pointer-events: unset;
-    transition:opacity 1.5s;
-}
-
-.slyde-body div{
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: auto;
-    justify-items: center;
-    align-self: center;
-}
-
-.slyde-body--show{
-    opacity: 1;
-    pointer-events: unset;
-}
-
-.slyde-body div{
-    max-width: 600;
-}
-
-.slyde-body div h2{
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    font-family: "Playfair Display", serif;
-}
-
-.review{
-    font-weight: 300;
-    font-size: 20px;
-    padding: 20px;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 1);
-    overflow-wrap: break-word;
-    text-align: center;
-    font-family: "Poppins", Arial, sans-serif;
-}
-
-.slyde-img{
-    width: 230px;
-    height: 230px;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-    margin: 0 auto;
-}
-
-.boton:nth-of-type(2){
-    justify-self: end;
-}*/
-
 /*SLIDER*/
 
 .container-informacion .sliderContainer{
     margin: 0;
     padding: 0;
-    height: 500px;
+    height: 300px;
     display: flex;
     justify-content: center;
-    align-items: center;
     background-image:url(../img/Background/BG-03.jpg);
     background-size: 100% 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
 }
 
+.sliderContainer h3{
+    letter-spacing: .005em;
+    font-family: 'Playfair Display',serif;
+    font-weight: 400;
+    color:goldenrod;
+    border-bottom: solid 1px;
+    font-size: 4em;
+}
 
 .sliderContainer .slider{
     width: 800px;
@@ -274,86 +209,74 @@
     margin: 0;
   }
   
-  /*css for manual slide navigation*/
-  
-  .sliderContainer .navigation-manual{
+  /*Mmm*/
+
+.sesgoabajo {
+  z-index: 10;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-width: 0 0 35vh 100vw;
+  border-style: solid;
+  border-color: transparent transparent #f5f5f5 transparent;
+  }
+
+.sesgoarriba {
+    z-index: 10;
     position: absolute;
-    width: 800px;
-    display: flex;
-    justify-content: center;
-    margin-top: 435px;
-  }
+    top: 0;
+    left: 0;
+    border-width: 35vh 100vw 0 0;
+    border-style: solid;
+    border-color:  #F5F5F5 transparent transparent transparent;
+}
+
   
-  .sliderContainer .manual-btn{
-    border: 2px solid #40D3DC;
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 1s;
-  }
-  
-  .sliderContainer .manual-btn:not(:last-child){
-    margin-right: 40px;
-  }
-  
-  .sliderContainer .manual-btn:hover{
-    background: #40D3DC;
-  }
-  
-  #radio1:checked ~ .first{
-    margin-left: 0;
-  }
-  
-  #radio2:checked ~ .first{
-    margin-left: -20%;
-  }
-  
-  #radio3:checked ~ .first{
-    margin-left: -40%;
-  }
-  
-  #radio4:checked ~ .first{
-    margin-left: -60%;
-  }
-  
-  /*css for automatic navigation*/
-  
-  .slider .navigation-auto{
-    position: absolute;
-    display: flex;
-    width: 800px;
-    justify-content: center;
-    margin-top: 460px;
-  }
-  
-  .slides .navigation-auto div{
-    border: 2px solid #40D3DC;
-    padding: 5px;
-    border-radius: 10px;
-    transition: 1s;
-  }
-  
-  .slides .navigation-auto div:not(:last-child){
-    margin-right: 40px;
-  }
-  
-  .slides #radio1:checked ~ .navigation-auto .auto-btn1{
-    background: #40D3DC;
-  }
-  
-  .slides #radio2:checked ~ .navigation-auto .auto-btn2{
-    background: #40D3DC;
-  }
-  
-  .slides #radio3:checked ~ .navigation-auto .auto-btn3{
-    background: #40D3DC;
-  }
-  
-  .slides #radio4:checked ~ .navigation-auto .auto-btn4{
-    background: #40D3DC;
+.text-info{
+    background: #F5F5F5;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.text-info p{
+    margin-bottom: 13px;
+    font-weight: 300;
+    line-height: 24px;
+    color: rgb(24, 16, 16);
+    font-size: 30px;
+}
+.ubicacion-informacion .mapouter,.mapouter .gmap_canvas{
+    width: 100%;
+}
+
+  @media (max-width: 1000px){
+    .page.open .item1-informacion,
+    .page.open .slider,
+    .page.open .container-informacion .sliderContainer,
+    .page.open .sliderContainer .navigation-manual,
+    .page.open .container-productos
+    {
+        width: auto;
+    }
+    .page.open .slider .navigation-auto{
+        width: calc(100% - 300px);
+    }
   }
         
   @media (max-width: 768px) {
+
+    .page.open .item1-informacion,
+    .page.open .slider,
+    .page.open .container-informacion .sliderContainer,
+    .page.open .sliderContainer .navigation-manual,
+    .page.open .container-productos
+    {
+        width: auto;
+    }
+
+    .page.open .slider .navigation-auto{
+        width: calc(100% - 300px);
+    }
 
     .page.open  .item2-2{
         margin-top: 10%;
@@ -370,12 +293,62 @@
     .page.open .review{
         font-size: 18px;
     }
-    .item1-informacion,
-    .slider .navigation-auto,
-    .container-informacion .sliderContainer,
-    .sliderContainer .navigation-manual
-    {
-        width: 768px;
+}
+
+@media (max-width: 700px){
+    .sesgoabajo{
+        border-width: 0 0 29vh 100vw;
+    }
+}
+
+@media (max-width: 600px){
+    .page.open .slider .navigation-auto {
+        width: calc(100% - 300px);
+      }
+    
+    .page.open .containerProductInfo{
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+    .page.open .containerProductInfo{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .container-informacion {
+        background: #F5F5F5;
+    }
+    .page.open .container-productos {
+        margin-bottom: 20%;
+    }
+    .item1-informacion h3{
+        font-size: 65px;
+    }
+    .mapouter{
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px){
+    
+    .containerProductInfo{
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+    .ubicacion .ubicacion-informacion .mapouter,.mapouter .gmap_canvas,#gmap_canvas{
+        width: 100% !important;
+    }
+}
+@media (max-width: 450px){
+    
+    .containerProductInfo{
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+    .ubicacion .ubicacion-informacion .mapouter,.mapouter .gmap_canvas,#gmap_canvas{
+        width: 100% !important;
+    }
+
+    .sesgoabajo{
+      border-width: 0 0 22vh 100vw;
     }
 }
 
@@ -415,13 +388,6 @@
         margin-right: 0%;
     }
 
-    .item1-informacion,
-    .slider .navigation-auto,
-    .container-informacion .sliderContainer,
-    .sliderContainer .navigation-manual
-    {
-        width: 425px;
-    }
     .item1-informacion h3{
         width: 200px;
     }
@@ -441,13 +407,6 @@
     .slyde-img{
         width: 150px;
         height: 150px;
-    }
-    .item1-informacion,
-    .slider .navigation-auto,
-    .container-informacion .sliderContainer,
-    .sliderContainer .navigation-manual
-    {
-        width: 375px;
     }
     .item1-informacion h3{
         width: 200px;
@@ -469,13 +428,7 @@
         width: 150px;
         height: 150px;
     }
-    .item1-informacion,
-    .slider .navigation-auto,
-    .container-informacion .sliderContainer,
-    .sliderContainer .navigation-manual
-    {
-        width: 320px;
-    }
+
     .item1-informacion h3{
         width: 200px;
     }
@@ -485,4 +438,11 @@
     .container-productos{
         padding-bottom: 40px;
     }
+}
+
+@media (max-width: 300px){
+    .containerProductInfo {
+        grid-template-columns: repeat(1,300px);
+    }
+
 }
