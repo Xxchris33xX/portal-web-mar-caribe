@@ -24,9 +24,9 @@ define ('CORE', 'config/core/');
 /////////////////////////////////////
 
 define('HOST', 'localhost');
-define('USER', 'admin');
-define('PASSWORD', 'admin');
-define('DB_NAME', 'TiendaMarCaribeCenter');
+define('USER', 'root');
+define('PASSWORD', 'root');
+define('DB_NAME', 'tiendamarcaribecenter');
 
 
 ?>

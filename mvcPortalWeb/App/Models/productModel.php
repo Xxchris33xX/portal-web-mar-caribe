@@ -9,12 +9,13 @@ class ProductModel extends Model
        parent::__construct();
     }
 
-    public function getProduct(){
-        $sql="SELECT * FROM producto 
+    public function mostrarProducto(){
+        $sql="SELECT * FROM producto  
             LEFT JOIN categoria 
             ON producto.categoria=categoria.id_categoria
             LEFT JOIN estatus
-            ON producto.estatus=estatus.id_estatus ;";
+            ON producto.estatus=estatus.id_estatus
+            WHERE estatus='1' ;";
         foreach ($this->conn->query($sql) as $row){
             $this->n[]=$row;
         }
@@ -23,16 +24,29 @@ class ProductModel extends Model
             $this->conn=null;
     }
 
-    public function get_categoria(){
-        $sql1="SELECT * FROM categoria ; " ;
-        foreach ($this->conn->query($sql1) as $row){
-            $this->c[]=$row;
+    public function getShop(){
+        $sql="SELECT * FROM producto  
+            LEFT JOIN categoria 
+            ON producto.categoria=categoria.id_categoria
+            LEFT JOIN estatus
+            ON producto.estatus=estatus.id_estatus
+            WHERE estatus='1' AND cantidad>'0';";
+        foreach ($this->conn->query($sql) as $row){
+            $this->n[]=$row;
         }
-            return $this->c;
+        //echo "hola";
+            return $this->n;
             $this->conn=null;
     }
+    public function getLastProduct(){
+        $sql="SELECT nombre FROM producto ORDER BY id_producto DESC LIMIT 1;";
+            $stmt = $this->conn->prepare ($sql);
+            $stmt->execute();
+            $row = $stmt->fetch();
+            return $row;
+    }
 
-    public function get_producto_por_id($id){
+    public function getProduct_por_id($id){
         $sql="SELECT * FROM producto
         LEFT JOIN categoria 
         ON producto.categoria=categoria.id_categoria
@@ -52,7 +66,7 @@ class ProductModel extends Model
             $this->conn=null;
     }
 
-    public function create_producto(){
+    public function insertarProducto(){
         print_r($_POST);
         if(empty($_POST["Nom_producto"]) 
         or empty($_POST["Categoria"])
@@ -74,61 +88,61 @@ class ProductModel extends Model
         $stmt -> BindValue(5, $_POST["Cantidad"], PDO::PARAM_STR);
         $stmt -> BindValue(6, $_POST["Categoria"], PDO::PARAM_STR);
         $stmt -> BindValue(7, $_POST["Estatus"], PDO::PARAM_INT);
-
         $stmt -> execute();
         $this->conn=null;
         header("location: reg-proController.php?m=2");
     }
 
-    public function edit_producto(){
+    public function editarProducto(){
         print_r($_POST);
         if(empty($_POST["Nom_producto"]) 
-        or empty($_POST["Categoria"])
         or empty($_POST["Imagen"])
-        or empty($_POST["Cantidad"]) 
-        or empty($_POST["Precio"])
-        or empty ($_POST["Estatus"]))
+        or empty($_POST["Precio"]))
         {
-            header("location: reg-proController.php?m=1&id=".$_POST["id"]);
+            header("location: edt-proController.php?m=1&id=".$_POST["id"]);
             exit;
         }
         else
          $sql="UPDATE producto
             SET
             nombre=?,
-            descripcion=?,
             imagen=?,
-            precio=?,
-            cantidad=?,
-            fecha_vencimiento=?,
-            categoria=?,
-            estatus=?
+            precio=?
             WHERE
             id_producto=?;
             ";
         $stmt = $this->conn->prepare ($sql);
-        $stmt -> BindValue(1, $_POST["Nombre"], PDO::PARAM_STR);
-        $stmt -> BindValue(2, "Producto de Mar Caribe Center", PDO::PARAM_STR);
-        $stmt -> BindValue(3, $_POST["Imagen"], PDO::PARAM_STR);
-        $stmt -> BindValue(4, $_POST["Precio"], PDO::PARAM_STR);
-        $stmt -> BindValue(5, $_POST["Cantidad"], PDO::PARAM_STR);
-        $stmt -> BindValue(6, $_POST["Categoria"], PDO::PARAM_STR);
-        $stmt -> BindValue(7, $_POST["Estatus"], PDO::PARAM_INT);
-        $stmt -> BindValue(8, $_POST["id"], PDO::PARAM_INT);
-        
+        $stmt -> BindValue(1, $_POST["Nom_producto"], PDO::PARAM_STR);
+        $stmt -> BindValue(2, $_POST["Imagen"], PDO::PARAM_STR);
+        $stmt -> BindValue(3, $_POST["Precio"], PDO::PARAM_STR);
+        $stmt -> BindValue(4, $_POST["id"], PDO::PARAM_INT);
         $stmt -> execute();
+        if (empty($_POST["Categoria"]))
+        {
+            $this->conn=null;
+            header("location: edt-proController.php?m=2&id=".$_POST["id"]);
+        }else
+        $sql1="UPDATE producto
+            SET
+            categoria=?
+            WHERE
+            id_producto=?;
+            ";
+        $stmt1 = $this->conn->prepare ($sql1);
+        $stmt1 -> BindValue(1, $_POST["Categoria"], PDO::PARAM_STR);
+        $stmt1 -> BindValue(2, $_POST["id"], PDO::PARAM_INT);
+        $stmt1 -> execute();
         $this->conn=null;
-        header("location: reg-proController.php?m=2&id=".$_POST["id"]);
+        header("location: edt-proController.php?m=2&id=".$_POST["id"]);
     }
 
-    public function delete_producto($id){
-        $sql="UPDATE producto SET estatus=? WHERE id_producto=?";
+    public function eliminarProducto($id){
+        $sql="UPDATE producto SET estatus='1' WHERE id_producto=?";
         $stmt = $this->conn->prepare ($sql);
-        $stmt ->BindParam(1,'0');
-        $stmt ->BindParam(2,$id);
+        $stmt ->BindParam(1,$id);
         $stmt -> execute();
         $this->conn=null;
-        header("location: con-proController.php?m=4");
+        header("location: ../Controllers/Sistema/con-proController.php?m=4");
     }  
 }
 ?>

@@ -14,63 +14,17 @@
     <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/boxicons-2.1.1/css/boxicons.css" rel="stylesheet" type="text/css">
     <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/boxicons-2.1.1/css/boxicons.min.css" rel="stylesheet" type="text/css">
     <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/boxicons-2.1.1/css/transformations.css" rel="stylesheet" type="text/css">
+    <script>
+        function eliminar(url){
+            if(confirm("¿Desea eliminar este producto?")){
+                window.location=url;
+            }
+        }
+    </script>
   </head>
 <body>
     <!-- Menú -->
-    <div class="sidebar">
-      <div class="logo-details">
-        <i class='bx bx-grid-alt' ></i>
-        <span class="logo_name">MarCaribe C.</span>
-      </div>
-      <ul class="nav-links">
-          <li>
-              <a href="../../Controllers/Sistema/dashboardController.php">
-                  <i class='bx bxs-dashboard' ></i>
-                  <span class="link_name">Dashboard</span>
-              </a>
-          </li>
-          <li>
-            <div class="iocn-link">
-              <a href="../../Controllers/Sistema/con-proController.php">
-                  <i class='bx bx-basket'></i>
-                  <span class="link_name">Consultar Productos</span>
-              </a>
-              <i class='bx bxs-chevron-down arrow' ></i>
-            </div>
-            <ul class="sub-menu">
-              <li><a class="link_name" href="../../Controllers/Sistema/con-proController.php">Consultar Productos</a></li>
-              <li><a href="../../Controllers/Sistema/reg-proController.php">Agregar Producto</a></li>
-              <li><a href="../../Controllers/Sistema/con-intController.php">Consultar Entrada</a></li>
-              <li><a href="../../Controllers/Sistema/con-outController.php">Consultar Salida</a></li>
-              <li><a href="../../Controllers/Sistema/con-oferController.php">Agregar Promoción</a></li>
-            </ul>
-          </li>
-        <li>
-          <div class="iocn-link">
-            <a href="../../Controllers/Sistema/con-userController.php">
-              <i class='bx bx-user' ></i>
-              <span class="link_name">Consultar Usuarios</span>
-            </a>
-            <i class='bx bxs-chevron-down arrow' ></i>
-          </div>
-          <ul class="sub-menu">
-              <li><a class="link_name" href="../../Controllers/Sistema/con-userController.php">Consultar Usuarios</a></li>
-              <li><a href="../../Controllers/Sistema/reg-userController.php">Agregar Usuario</a></li>
-          </ul>
-        </li>
-      <li> 
-      <div class="profile-details">
-        <div class="profile-content">
-          <img src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/img/Person/lanegra.jpg" alt="profileImg">
-        </div>
-        <div class="name-job">
-          <div class="profile_name">Trabajador</div>
-          <div class="job">Administrador</div>
-        </div>
-        <i class='bx bx-log-out'></i>
-      </li>
-    </ul>
-    </div>
+    <?php require('partials/menu.php') ?>
     <!-- FIN MENÚ -->
     <!-- GESTIONAR PRODUCTO -->
     <section class="home-section">
@@ -105,12 +59,33 @@
                               <th><?php echo $datos [$i] ["precio"],'$';?></th>
                               <th>
                                 <label class="botones-direc" for="btn-modal-descripción"><i class='bx bxs-book-content'></i></label>
+                                <!-- MODAL DESCRIPCIÓN  -->
+                    <div>
+                      <input type="checkbox" id="btn-modal-descripción">
+                      <section class="modal-descripción" id="btn-modal-descripción">
+                          <div class="modal-contenedor">
+                            <label for="btn-modal-descripción" class="denegar"><i class='bx bx-x-circle'></i></label>
+                            <h2>Editar descripción</h2><span class="botones">
+                            <div class="Registrar-producto">
+                              <form action="" class="form" method="POST" >
+                                <div class="form-content">
+                                  <div class="form-group">
+                                    <div class="actionsContent">
+                                     <a id="editTextAreaBtn"><i class='bx bxs-edit-alt'><span>Editar</span></i></a>
+                                    </div>
+                                    <textarea class="productDescript" id="textArea" name="Descripcion" id="" cols="30" rows="5" maxlength="100" disabled><?php echo $datos [$i] ["descripcion"],'$';?></textarea>
+                                    <div><span id="textCounter"></span>/100</div>
+                                  </div>
+                                  <input type="submit" class="form-btn" value="Confirmar">
+                                </div>  
+                                
+                              </form>
                               </th>
                               <th><img height="75" width="auto" src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/img/Productos/<?php echo $datos [$i] ["imagen"];?>"> </th>
                               <th><?php echo $datos [$i] ["nom_estatus"];?></th>
                               <th>
-                                <label class="botones-direc" for="btn-modal-edit"><i class='bx bxs-edit'></i><span class="btn-editar">Editar</span></label>
-                                <label class="botones-direc" for="btn-modal-eliminar"><i class='bx bx-x'></i><span class="btn-eliminar">Eliminar</span></label>
+                                <label class="botones-direc" for="btn-modal-edit"><i class='bx bxs-edit'></i><span class="btn-editar"><a href="edt-proController.php?id=<?php echo $datos [$i] ["id_producto"];?>">Editar</a></span></label>
+                                <label class="botones-direc" for="btn-modal-eliminar"><i class='bx bx-x'></i><span class="btn-eliminar"><a href="javascript:void(0);" title="Eliminar <?php echo $datos [$i] ["nombre"];?>" onclick=" eliminar ('../../helpers/delete.php?id=<?php echo $datos [$i] ['id_producto'];?>')">Eliminar</a></span></label>
                               </th>
                             </tr>
                             <?php } ?>

@@ -11,7 +11,7 @@ $(document).ready(function(){
             },
             success: function(response) {
                 if (response.estado == true) {
-                    window.location.href = "dashboard.php";
+                    window.location.href = "../../Controllers/sistema/dashboardController.php";
                 }else{
                     let errorLogin = document.getElementById('errorLogin');
                     errorLogin.classList.add('active');

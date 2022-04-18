@@ -25,7 +25,7 @@
       </div>
       <section id="Agregar-Usuario">
         <div class="menu-section">
-          <span class="current-section">Registrar Usuarios</span>
+          <span class="current-section">Editar Usuario : <?php echo $datos [0] ["nom_usuario"];?> </span>
         </div>
         <div class="Registrar-usuario">
           <form class="form" method="POST">
@@ -42,24 +42,24 @@
               <div class="form-group-contact">
                   <!-- INPUT NOMBRE -->
                   <div class="form-div">
-                    <input type="text" class="form-input" placeholder=" " name="Nombre">
+                    <input type="text" class="form-input" placeholder="" value="<?php echo $datos [0] ["nombre"];?>" name="Nombre">
                     <label for="" class="form-label" type="text">Nombre:</label>
                   </div>
                   <!-- INPUT APELLIDO -->
                   <div class="form-div">
-                  <input type="text" class="form-input" placeholder=" " name="Apellido">
+                  <input type="text" class="form-input" placeholder=" " value="<?php echo $datos [0] ["apellido"];?>" name="Apellido">
                   <label for="" class="form-label" type="text">Apellido:</label>
                   </div>
               </div>
               <div class="form-group-contact">
                 <!-- INPUT NOMBRE USUARIO -->
                 <div class="form-div">
-                  <input type="text" class="form-input" placeholder=" " name="Nom_usuario">
+                  <input type="text" class="form-input" placeholder=" " value="<?php echo $datos [0] ["nom_usuario"];?>" name="Nom_usuario">
                   <label for="" class="form-label" type="text">Usuario:</label>
                 </div>  
                 <!-- INPUT CÉDULA -->
                 <div class="form-div">
-                <input type=number class="form-input" name="Cedula" placeholder=" ">
+                <input type=number class="form-input" name="Cedula" value="<?php echo $datos [0] ["cedula"];?>" placeholder=" ">
                 <label for="" class="form-label" type="text">Cédula:</label>
                 </div>
               </div>
@@ -77,10 +77,9 @@
                 <div class="form-div">
                   <label for="" class="form-label categoria" type="text">Rol:
                     <select id="categorias" class="form-select" name="Rol_usuario">
-                      <?php
-        $datos = $user -> get_rol();
-        for($i=0;$i<sizeof($datos);$i++){ ?>
-                        <option value="<?php echo $datos [$i] ["id_rol"];?>"><?php echo $datos [$i] ["nom_rol"];?></option>
+                    <option value="" selected disabled hidden><?php echo $datos[0]["nom_rol"];?></option>
+                      <?php for($i=0;$i<sizeof($rol);$i++){ ?>
+                        <option value="<?php echo $rol [$i] ["id_rol"];?>"><?php echo $rol [$i] ["nom_rol"];?></option>
                         <?php } ?>
                       </select>
                     </select>
@@ -103,14 +102,14 @@
               </div>
               <div class="form-group" id="grupo__direccion">
                 <!-- INPUT DIRECCIÓN -->
-                <input type="text" class="form-input" placeholder=" " name="Direccion">
+                <input type="text" class="form-input" placeholder=" " value="<?php echo $datos [0] ["direccion"];?>" name="Direccion">
                 <label for="" class="form-label" type="text">Dirección</label>
                 <p class="formulario__input-error">La direccion tiene que tener más de 4 dígitos.</p>
               </div>
               <div class="form-group-contact">
                 <!-- INPUT TELÉFONO -->
                 <div class="form-div">
-                  <input type="number" class="form-input" placeholder="" name="Telefono">
+                  <input type="number" class="form-input" placeholder=""  name="Telefono">
                   <label for="" class="form-label" type="text">Teléfono</label>
                 </div> 
                 <!-- INPUT CORREO -->
@@ -122,10 +121,9 @@
               <p class="formulario__input-error" id="grupo__correo">
                 El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.
               </p>
-              <input type="hidden" id="accion" name="accion" value="0">
-              <input type="hidden" id="entidad" name="entidad" value="2">
+              <input type="hidden" name="id" value="<?php echo $_GET["id"];?>">
               <input type="hidden" id="grabar" name="grabar" value="true">
-              <input type="submit" class="form-btn" value="Registrar Usuario">
+              <input type="submit" class="form-btn" value="Editar Usuario">
             </div>  
           </form>
         </div>

@@ -9,7 +9,7 @@ class ContactsModel extends Model
        parent::__construct();
     }
 
-    public function getContacts()
+    public function mostrarContactos()
     {
             $sql="SELECT * FROM datos_tienda WHERE id_datos = '1';";
             $stmt = $this->conn->prepare ($sql);
@@ -18,19 +18,41 @@ class ContactsModel extends Model
             return $row;
     }
     
-    public function editContacts()
+    public function editarTelefono()
     {
+        if(empty($_POST["telefono"]))
+        {
+            header("location: dasboardController.php?m=1");
+            exit;
+        }else
         $sql="UPDATE datos_tienda
             SET
-            telefono_tienda=?,
-            ubicacion_tienda=?
+            telefono_tienda=?
             WHERE
-            id_producto='1';
+            id_datos='1';
             ";
         $stmt = $this->conn->prepare ($sql);
         $stmt -> BindValue(1, $_POST["telefono"], PDO::PARAM_STR);
-        $stmt -> BindValue(2, $_POST["ubicacion"], PDO::PARAM_STR);
         $stmt -> execute();
+        $this->conn=null;
+        header("location: dashboardController.php?m=2");
+    }
+    public function editarUbicacion()
+    {
+        if(empty($_POST["ubicacion"]))
+        {
+            header("location: dashboardController.php?m=1");
+            exit;
+        }else
+        $sql1="UPDATE datos_tienda
+            SET
+            ubicacion_tienda=?
+            WHERE
+            id_datos='1';
+            ";
+        $stmt1 = $this->conn->prepare ($sql1);
+        $stmt1 -> BindValue(1, $_POST["ubicacion"], PDO::PARAM_STR);
+        $stmt1 -> execute();
         $this->conn=null;
         header("location: dashboardController.php?m=2");
     }

@@ -1,11 +1,11 @@
 <?php
-    require_once('Model.php');
+    require_once('BD_Conect.php');
     include 'User.php';
-    class usuarioDao extends Model
+    class usuarioDao extends Database
     {
         protected static $conexion;
         public static function getConexion(){
-            self::$conexion = Parent::__construct();
+            self::$conexion = Database::Conectar();
         }
         private static function disconect() {
             self::$conexion = null;

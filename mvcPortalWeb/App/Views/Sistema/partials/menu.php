@@ -24,9 +24,11 @@
                 <li><a href="../../Controllers/Sistema/con-intController.php">Consultar Entrada</a></li>
                 <li><a href="../../Controllers/Sistema/con-outController.php">Consultar Salida</a></li>
                 <li><a href="../../Controllers/Sistema/con-oferController.php">Agregar Promoción</a></li>
+                <li><a href="../../Controllers/Sistema/con-catController.php">Consultar Categorias</a></li>
               </ul>
             </li>
-        <?php if($_SESSION['user']['priv'] == 1){ ?>
+            
+        <?php if($_SESSION['user']['rol_usuario'] == 1){ ?>
           <li>
             <div class="iocn-link">
               <a href="../../Controllers/Sistema/../../Controllers/Sistema/con-userController.php">
@@ -44,18 +46,18 @@
         <li>
         <div class="profile-details">
           <div class="profile-content">
-            <?php if($_SESSION['user']['priv'] == 1){?>
-            <img src="../../Helpers/img/User/admin.jpg" alt="profileImg">
+            <?php if($_SESSION['user']['rol_usuario'] == 1){?>
+            <img src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/img/User/admin.jpg" alt="profileImg">
             <?php }?>
-            <?php if($_SESSION['user']['priv'] == 2){?>
-            <img src="../../Helpers/img/User/operator.jpg" alt="profileImg">
+            <?php if($_SESSION['user']['rol_usuario'] == 2){?>
+            <img src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/img/User/operator.jpg" alt="profileImg">
             <?php }?>
           </div>
           <div class="name-job">
             <div class="profile_name">Trabajador</div>
-            <div class="job"><?php echo $_SESSION['user']['priv'] == 1 ? 'Administrador':'Operador'; ?></div>
+            <div class="job"><?php echo $_SESSION['user']['rol_usuario'] == 1 ? 'Administrador':'Operador'; ?></div>
           </div>
-           <a class="btn-exit" href="../../Controllers/Sistema/closeSesion.php">
+           <a class="btn-exit" href="../../Views/Sistema/closeSesion.php">
             <i class='bx bx-log-out'></i>
            </a>
         </li>

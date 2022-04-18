@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultar Entrada</title>
+    <title>Consultar Historial</title>
     <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/styles/Sistema/menu.css" rel="stylesheet" type="text/css">
     <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/styles/Sistema/c-productos.css" rel="stylesheet" type="text/css">
     <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/styles/Sistema/modales.css" rel="stylesheet" type="text/css">
@@ -26,29 +26,27 @@
             </div>
             <section id="Consultar-Producto">
                 <div class="menu-section">
-                    <span class="current-section"><label for="btn-modal"> Consultar Entradas</label></span>
+                    <span class="current-section"><label for="btn-modal"> Consultar Historial de x</label></span>
                   </div>
                     <div class="Consultar-Producto">
                         <!-- VISUALIZAR ENTRADAS -->
                         <section class="Consultar-entradas">
                           <div class="tabla-entrada">
-                            <label for="btn-modal-entrada"><span class="Registrar">Registrar Entrada</span></label>
+                            <label for="btn-modal-entrada"><span class="Registrar">Registrar categoria</span></label>
                             <table class="table table-entradas">
                               <thead>
                                 <tr>
                                   <th>Código</th>
-                                  <th>Producto</th>
-                                  <th>Cantidad</th>
-                                  <th>Fecha y Hora</th>
+                                  <th>Acción</th>
+                                  <th>Objeto</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php for($i=0;$i<sizeof($entrada);$i++){ ?>
+                            <?php for($i=0;$i<sizeof($datos);$i++){ ?>
                                 <tr>
-                                  <th><?php echo "INT-". $entrada [$i] ["id_entrada"];?></th>
-                                  <th><?php echo $entrada [$i] ["nombre"];?></th>
-                                  <th><?php echo '+ '.$entrada [$i] ["cantidad_entrada"].' Unidades';?></th>
-                                  <th><?php echo $entrada [$i] ["fecha_hora"];?></th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
                                 </tr>
                                 <?php } ?>
                               </tbody>
@@ -76,11 +74,11 @@
                                 <div class="Registrar-producto">
                                   <form action="" class="form" id="form-int">
                                     <div class="form-content">
-                                    <div class="form-group">
-                                      <!-- INPUT CANTIDAD -->
-                                      <input type="number" class="form-input" placeholder=" ">
-                                      <label for="" class="form-label" type="number">Cantidad:</label>
+                                    <div class="form-group" id="grupo__nombre">
+                                      <input type="text" class="form-input" placeholder=" " name="nombre">
+                                      <label for="" class="form-label" type="text">Categoria:</label>
                                       <span class="form-line"></span>
+                                      <p class="formulario__input-error">La categoria tiene que ser de 4 a 16 dígitos y solo puede contener letras.</p>
                                     </div>
                                     <div class="form-group">
                                       <input type="submit" class="form-btn" value="Confirmar">
@@ -95,26 +93,18 @@
                           <section class="modal-entrada" id="modal-edit">
                             <div class="modal-contenedor">
                               <label for="btn-modal-entrada" class="denegar"><i class='bx bx-x-circle'></i></label>
-                              <h2>Registrar Entrada</h2><span class="botones">
+                              <h2>Registrar Categoria</h2><span class="botones">
                               <div class="Registrar-Entrada">
-                                <form action="" method="POST" class="form">
+                                <form action="" class="form" method="POST">
                                   <div class="form-content">
                                     <!-- INPUT NOMBRE-->
-                                    <div class="containerSelectProduct">
-                                    <select id="" class="form-select" name="id">
-                                      <?php for($i=0;$i<sizeof($datos);$i++){ ?>
-                                      <option value="<?php echo $datos [$i] ["id_producto"];?>" ><?php echo $datos [$i] ["nombre"];?></option>
-                                      <?php } ?>
-                                    </select>
-                                    </div>
-                                    <div class="form-group">
-                                      <!-- INPUT CANTIDAD -->
-                                      <input type="number" class="form-input" name="Cantidad" placeholder=" ">
-                                      <label for="" class="form-label" type="number">Cantidad:</label>
+                                    <div class="form-group" id="grupo__nombre">
+                                      <input type="text" class="form-input" placeholder=" " name="Nom_categoria">
+                                      <label for="" class="form-label" type="text">Nombre:</label>
                                       <span class="form-line"></span>
+                                      <p class="formulario__input-error">La categoria tiene que ser de 4 a 16 dígitos y solo puede contener letras.</p>
                                     </div>
-                                    <div class="form-group">
-                                    <input type="hidden" id="entrada" name="entrada" value="true">
+                                    <input type="hidden" id="grabar" name="grabar" value="true">
                                     <input type="submit" class="form-btn" value="Confirmar">
                                     </div>  
                                 </form>

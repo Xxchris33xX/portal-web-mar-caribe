@@ -922,3 +922,19 @@
 .Consultar-entradas .modal-salida .modal-contenedor .form .form-content .form-group .form-input:not(:first-child) ~ .form-line{
   transform: scale(1);
 }
+.form-btn{
+background-color: #3866f2;
+color: #ffffff;
+font-family: 'Poppins', sans-serif;
+font-weight: 300;
+font-size: 1rem;
+padding: .8em 0;
+border: none;
+border-radius: .5em;
+cursor: pointer;
+width: 100%;
+margin-top: 5%;
+}
+.form-btn:hover{
+  background-color: #0b47fd;
+}

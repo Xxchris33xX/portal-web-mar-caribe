@@ -13,84 +13,23 @@
 </head>
 <body>
     <!-- Menú -->
-    <div class="sidebar">
-        <div class="logo-details">
-          <i class='bx bx-grid-alt' ></i>
-          <span class="logo_name">MarCaribe C.</span>
-        </div>
-        <ul class="nav-links">
-            <li>
-                <a href="../../Controllers/Sistema/dashboardController.php">
-                    <i class='bx bxs-dashboard' ></i>
-                    <span class="link_name">Dashboard</span>
-                </a>
-            </li>
-            <li>
-              <div class="iocn-link">
-                <a href="../../Controllers/Sistema/con-proController.php">
-                    <i class='bx bx-basket'></i>
-                    <span class="link_name">Consultar Productos</span>
-                </a>
-                <i class='bx bxs-chevron-down arrow' ></i>
-              </div>
-              <ul class="sub-menu">
-                <li><a class="link_name" href="../../Controllers/Sistema/con-proController.php">Consultar Productos</a></li>
-                <li><a href="../../Controllers/Sistema/reg-proController.php">Agregar Producto</a></li>
-                <li><a href="../../Controllers/Sistema/con-intController.php">Consultar Entrada</a></li>
-                <li><a href="../../Controllers/Sistema/con-outController.php">Consultar Salida</a></li>
-                <li><a href="../../Controllers/Sistema/con-oferController.php">Agregar Promoción</a></li>
-              </ul>
-            </li>
-          <li>
-            <div class="iocn-link">
-              <a href="../../Controllers/Sistema/con-userController.php">
-                <i class='bx bx-user' ></i>
-                <span class="link_name">Consultar Usuarios</span>
-              </a>
-              <i class='bx bxs-chevron-down arrow' ></i>
-            </div>
-            <ul class="sub-menu">
-                <li><a class="link_name" href="../../Controllers/Sistema/con-userController.php">Consultar Usuarios</a></li>
-                <li><a href="../../Controllers/Sistema/reg-userController.php">Agregar Usuario</a></li>
-            </ul>
-          </li>
-        <li> 
-        <div class="profile-details">
-          <div class="profile-content">
-            <img src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/img/Person/lanegra.jpg" alt="profileImg">
-          </div>
-          <div class="name-job">
-            <div class="profile_name">Trabajador</div>
-            <div class="job">Administrador</div>
-          </div>
-          <i class='bx bx-log-out'></i>
-        </li>
-      </ul>
-    </div>
+    <?php require('partials/menu.php') ?>
     <!-- FIN MENÚ -->
     <section class="home-section">
         <div class="home-content">
           <i class='bx bx-menu'> <span class="text">Menú</span></i>
-          <p class="welcome">Bienvenido Usuario#1</p>
+          <p class="welcome">Bienvenido <?php echo $_SESSION['user']['nom_usuario'] ?></p>
         </div> 
         <section id="dashboard">
             <div class="menu-section">
                 <span class="current-section">Dashboard</span>
             </div>
-            <?php for($i=0;$i<sizeof($datos);$i++)?>
             <div class="Dashboard">
-                <div class="Sistema-Usuarios">
-                    <h3><?php echo ($i);?></h3>
-                    <i class='bx bx-user'></i>
-                    <p class="text">Usuarios registrados</p>
-                    <a href="../../Controllers/Sistema/con-userController.php"> Más información </a>
-                </div>
-                <?php for($i1=0;$i1<sizeof($datos1);$i1++){ $i1; } ?>
-                <div class="Sistema-Productos"> 
-                    <h3><?php echo ($i1);?></h3>
+                <div class="Sistema-Productos">
+                    <h3><?php echo $p;?></h3>
                     <i class='bx bx-basket'></i>
                     <p class="text">Productos registrados</p>
-                    <a href="../../Controllers/Sistema/con-proController.php"> Más información </a>
+                    <a href="../../controllers/sistema/con-proController.php"> Más información </a>
                 </div>
                 <div class="Sistema-Visitas">
                     <h3>44</h3>
@@ -101,18 +40,40 @@
                     <h3>44</h3>
                     <i class='bx bx-purchase-tag' ></i>
                     <p class="text">Ofertas activas</p>
-                    <a href="#"> Más información </a>
+                    <a href="../../controllers/sistema/con-oferController.php"> Más información </a>
                 </div>
                 <div class="Sistema-Informacion">
                     <span>Resumen de actividades</span>
                     <i class='bx bxs-user-detail'></i>
-                    <p class="text-1">Último producto agregado</p>
+                    <p class="text-1">Último producto agregado: <?php echo $last['nombre'];?></p>
                     <p class="text-2">Última conexión</p>
                     <p class="text-3">Última salida registrada</p>
+
+                    <form class="form-infouser1" method="POST" action="">
+                      <span class="info-user1">Ubicación:</span>
+                      <input id="inputU" type="text" name="ubicacion" value="<?php echo $datos2 ["ubicacion_tienda"];?>" disabled>
+                      <button id="btnConfirm" class="button-confirm" name="grabar" id="grabar" value="ubicacion" ><i class='bx bx-check-circle'></i></button>
+                      <i id="btnEditinfo" class='bx bx-edit-alt'></i>
+                    </form>
+                    <form class="form-infouser1" method="POST" action="">
+                      <span class="info-user1">Teléfono:</span>
+                      <input id="inputT" type="text" name="telefono" value="<?php echo $datos2 ["telefono_tienda"];?>" disabled>
+                      <button  class="button-confirm2" name="grabar" id="grabar" value="telefono"><i class='bx bx-check-circle'></i></button>
+                      <i id="btnEditinfo2" class='bx bx-edit-alt'></i>
+                    </form>
                 </div>
+              <?php if($_SESSION['user']['rol_usuario'] == 1){ ?>
+                <div class="Sistema-Usuarios">
+                    <h3><?php echo $i;?></h3>
+                    <i class='bx bx-user'></i>
+                    <p class="text">Usuarios registrados</p>
+                    <a href="../../controllers/sistema/con-userController.php"> Más información </a>
+                </div>
+             <?php }?>
             </div>
       </section>
     </section> 
-  <script src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/slide/menu.js"></script>    
+  <script src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/slide/menu.js"></script>  
+  <script src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/slide/infoUserEdit.js"></script>      
 </body>
 </html>

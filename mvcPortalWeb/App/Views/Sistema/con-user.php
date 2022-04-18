@@ -14,63 +14,17 @@
     <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/boxicons-2.1.1/css/boxicons.css" rel="stylesheet" type="text/css">
     <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/boxicons-2.1.1/css/boxicons.min.css" rel="stylesheet" type="text/css">
     <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/boxicons-2.1.1/css/transformations.css" rel="stylesheet" type="text/css">
-</head>
+    <script>
+        function eliminar(url){
+            if(confirm("¿Desea eliminar este producto?")){
+                window.location=url;
+            }
+        }
+    </script>
+  </head>
 <body>
     <!-- Menú -->
-    <div class="sidebar">
-      <div class="logo-details">
-        <i class='bx bx-grid-alt' ></i>
-        <span class="logo_name">MarCaribe C.</span>
-      </div>
-      <ul class="nav-links">
-          <li>
-              <a href="../../Controllers/Sistema/dashboardController.php">
-                  <i class='bx bxs-dashboard' ></i>
-                  <span class="link_name">Dashboard</span>
-              </a>
-          </li>
-          <li>
-            <div class="iocn-link">
-              <a href="../../Controllers/Sistema/con-proController.php">
-                  <i class='bx bx-basket'></i>
-                  <span class="link_name">Consultar Productos</span>
-              </a>
-              <i class='bx bxs-chevron-down arrow' ></i>
-            </div>
-            <ul class="sub-menu">
-              <li><a class="link_name" href="../../Controllers/Sistema/con-proController.php">Consultar Productos</a></li>
-              <li><a href="../../Controllers/Sistema/reg-proController.php">Agregar Producto</a></li>
-              <li><a href="../../Controllers/Sistema/con-intController.php">Consultar Entrada</a></li>
-              <li><a href="../../Controllers/Sistema/con-outController.php">Consultar Salida</a></li>
-              <li><a href="../../Controllers/Sistema/con-oferController.php">Agregar Promoción</a></li>
-            </ul>
-          </li>
-        <li>
-          <div class="iocn-link">
-            <a href="../../Controllers/Sistema/con-userController.php">
-              <i class='bx bx-user' ></i>
-              <span class="link_name">Consultar Usuarios</span>
-            </a>
-            <i class='bx bxs-chevron-down arrow' ></i>
-          </div>
-          <ul class="sub-menu">
-              <li><a class="link_name" href="../../Controllers/Sistema/con-userController.php">Consultar Usuarios</a></li>
-              <li><a href="../../Controllers/Sistema/reg-userController.php">Agregar Usuario</a></li>
-          </ul>
-        </li>
-      <li> 
-      <div class="profile-details">
-        <div class="profile-content">
-          <img src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/img/Person/lanegra.jpg" alt="profileImg">
-        </div>
-        <div class="name-job">
-          <div class="profile_name">Trabajador</div>
-          <div class="job">Administrador</div>
-        </div>
-        <i class='bx bx-log-out'></i>
-      </li>
-    </ul>
-    </div>
+    <?php require('partials/menu.php') ?>
     <!-- FIN MENÚ -->
     <section class="home-section">
         <div class="home-content">
@@ -111,11 +65,11 @@
                           <label class="botones-direc" for="btn-modal-user"><i class='bx bxs-book-content'></i></label>
                         </th>
                         <th>
-                          <label class="botones-direc" for="btn-modal-historial"><i class='bx bx-history' ></i></label>
+                          <label class="botones-direc" for="log"><a name="log" id="log" href="con-logController.php?id=<?php echo $datos [$i] ["id_usuario"];?>"><i class='bx bx-history'></i></a></label>
                         </th>
                         <th>
-                            <label class="botones-direc" for="btn-modal-edit-user"><i class='bx bxs-edit'></i><span class="btn-editar">Editar</span></label>
-                            <label class="botones-direc" for="btn-modal-eliminar-user"><i class='bx bx-x'></i><span class="btn-eliminar">Eliminar</span></label>
+                            <label class="botones-direc" for="btn-modal-edit-user"><i class='bx bxs-edit'></i><span class="btn-editar"><a href="edt-userController.php?id=<?php echo $datos [$i] ["id_usuario"];?>">Editar</a></span></label>
+                            <label class="botones-direc" for="btn-modal-eliminar-user"><i class='bx bx-x'></i><span class="btn-eliminar"><a href="javascript:void(0);" title="Eliminar <?php echo $datos [$i] ["nombre"];?>" onclick=" eliminar ('../../helpers/deleteUser.php?id=<?php echo $datos [$i] ['id_usuario'];?>')">Eliminar</a></span></label>
                         </th>
                       </tr>
                       <?php

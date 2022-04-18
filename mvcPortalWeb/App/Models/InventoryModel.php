@@ -4,6 +4,7 @@ class InventoryModel extends ProductModel
 {
     public $value1 = array();
     public $result;
+    
     public function __construct()
     {
        parent::__construct();
@@ -53,13 +54,19 @@ class InventoryModel extends ProductModel
             exit;
         }
         else
+        $this -> $value2 = $number1;
+        $this -> result = $this-> $value1 - $_POST["Cantidad"];
+        if($this -> result < 0)
+        {
+            header("location: con-outController.php?m=3");
+            exit;
+        }else
         $sql2 = "INSERT INTO salida VALUES (default,?,?,default);";
         $stmt2 = $this->conn->prepare ($sql2);
         $stmt2 -> BindValue(1, $_POST["id"], PDO::PARAM_INT);
         $stmt2 -> BindValue(2, $_POST["Cantidad"], PDO::PARAM_STR);
-        $stmt2 -> execute();
-        $this -> $value2 = $number1;
-        return  $this -> result = $this-> $value1 - $_POST["Cantidad"];
+        $stmt2 -> execute(); 
+        return  $this -> result;
     }
 
     public function editInventory($resultado)
@@ -78,11 +85,12 @@ class InventoryModel extends ProductModel
         
     }
 
-    public function getEntrada()
+    public function mostrarEntrada()
     {
             $sql="SELECT * FROM entrada 
                 LEFT JOIN producto   
-                ON entrada.producto_entrada=producto.id_producto;";
+                ON entrada.producto_entrada=producto.id_producto
+                ORDER BY id_entrada DESC;";
             foreach ($this->conn->query($sql) as $row){
                 $this->n[]=$row;
             }
@@ -91,11 +99,12 @@ class InventoryModel extends ProductModel
                 $this->conn=null;
     }
 
-    public function getSalida()
+    public function mostrarSalida()
     {
         $sql="SELECT * FROM salida 
                 LEFT JOIN producto   
-                ON salida.producto_salida=producto.id_producto;";
+                ON salida.producto_salida=producto.id_producto
+                ORDER BY id_salida DESC;";
             foreach ($this->conn->query($sql) as $row){
                 $this->n[]=$row;
             }

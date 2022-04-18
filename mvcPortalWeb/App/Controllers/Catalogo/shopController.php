@@ -1,9 +1,9 @@
 <?php
     require('../../Models/ProductModel.php');
     $pro = new productModel();
-    $datos = $pro -> getProduct();
+    $datos = $pro -> getShop();
     require('../../Models/ContactsModel.php');
     $con = new ContactsModel();
-    $contactos = $con -> getContacts();
+    $contactos = $con -> mostrarContactos();
     require('../../Views/Catalogo/shop.php');
 ?>

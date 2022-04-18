@@ -1,11 +1,4 @@
-<?php
-    include '../../Controllers/UserController.php';
-    session_start();
-    if(isset($_SESSION["user"]))
-    {
-        header('location:dashboard.php');
-    }
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

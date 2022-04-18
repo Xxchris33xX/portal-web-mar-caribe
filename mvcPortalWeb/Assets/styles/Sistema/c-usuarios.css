@@ -131,3 +131,8 @@
   width: 10%;
   
 }
+
+.botones-direc span a{
+  text-decoration: none;
+  color:inherit;
+}

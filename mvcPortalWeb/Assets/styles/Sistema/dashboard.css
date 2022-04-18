@@ -401,3 +401,78 @@
   height: 50px;
   border-radius: 5px 5px 0 5px;
 }
+
+/* INFORMACIÓN USUARIO */
+
+.form-infouser1{
+  grid-column: 1/4;
+  border: solid black;
+  border-width: 0px 0px 2px 0px;
+  
+}
+
+.Dashboard .Sistema-Informacion .info-user1{
+  align-self: end;
+  margin-bottom: 3%;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px;
+  border:0px;
+  margin-bottom: 3%;
+}
+.form-infouser1 input{
+  margin-bottom: 3%;
+  padding: 5px;
+  width: 50%;
+}
+.button-confirm, .button-confirm2{
+  margin-left: 2%;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 0px;
+  display: none;
+}
+.button-confirm:hover,.button-confirm2:hover{
+  background-color: white;
+  color: #4CAF50;
+  cursor: pointer;
+}
+.button-confirm:active,.button-confirm2:active{
+  background-color: #4CAF50;
+  color: white;
+}
+.bx-check-circle{
+  font-size: 24px;
+}
+.bx-edit-alt{
+  color: rgb(224, 66, 3);
+  font-size: 24px;
+}
+.bx-edit-alt:hover{
+  cursor: pointer;
+  color: rgb(224, 90, 3);
+}
+.bx-edit-alt:active{
+  color: rgb(224, 66, 3);
+}
+.button-confirm.show,.button-confirm2.show{
+  display: inline-block;
+}
+.bx-x-circle{
+  color: rgb(224, 66, 3);
+  font-size: 24px;
+  background-color: white;
+  border-radius: 50%;
+}
+.bx-x-circle:hover{
+  cursor: pointer;
+  color: rgb(224, 90, 3);
+}
+.bx-x-circle:active{
+  color: rgb(224, 66, 3);
+}
+

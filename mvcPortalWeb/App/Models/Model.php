@@ -21,6 +21,16 @@ abstract class Model
             }
     }
 
+    public function createLog($id)
+    {
+        $sql1 = "INSERT INTO historial VALUES (default,?,default,?,?,
+        (SELECT id_categoria FROM categoria ORDER BY id_categoria DESC LIMIT 1));";
+        $stmt1 = $this->conn->prepare ($sql1);
+        $stmt1 -> BindValue(1, $id, PDO::PARAM_INT);
+        $stmt1 -> BindValue(2, $_POST["accion"], PDO::PARAM_INT);
+        $stmt1 -> BindValue(3, $_POST["entidad"], PDO::PARAM_INT);
+        $stmt1 -> execute();
+    }
     
     
 }

@@ -10,7 +10,7 @@ class UserModel extends Model{
         parent::__construct();
     }
 
-    public function getUser(){
+    public function mostrarUsuario(){
         $sql="SELECT * FROM usuario 
             LEFT JOIN rol 
             ON usuario.rol_usuario=rol.id_rol
@@ -25,17 +25,13 @@ class UserModel extends Model{
             $this->conn=null;
     }
 
-    public function get_rol(){
-        $sql1="SELECT * FROM rol ; " ;
-        foreach ($this->conn->query($sql1) as $row){
-            $this->c[]=$row;
-        }
-            return $this->c;
-            $this->conn=null;
-    }
-
-    public function get_usuario_por_id($id){
-        $sql="SELECT * FROM usuario WHERE id_usuario= ? ;";
+    public function getUser_por_id($id){
+        $sql="SELECT * FROM usuario 
+        LEFT JOIN rol 
+        ON usuario.rol_usuario=rol.id_rol
+        RIGHT JOIN personal
+        ON personal.usuario_personal=usuario.id_usuario
+        WHERE id_usuario= ?; ";
         $stmt = $this->conn->prepare ($sql);
 
         if ($stmt->execute(array($id) ))
@@ -49,11 +45,20 @@ class UserModel extends Model{
             $this->conn=null;
     }
 
-    public function create_usuario(){
+    public function get_rol(){
+        $sql1="SELECT * FROM rol ; " ;
+        foreach ($this->conn->query($sql1) as $row){
+            $this->c[]=$row;
+        }
+            return $this->c;
+            $this->conn=null;
+    }
+
+    public function insertarUsuario(){
         if(
         empty($_POST["Nombre"])
         or empty($_POST["Apellido"]) 
-        or empty($_POST["username"]) 
+        or empty($_POST["Nom_usuario"]) 
         or empty($_POST["Cedula"]) 
         or empty($_POST["Estatus"]) 
         or empty($_POST["Contrasenia"]) 
@@ -69,10 +74,10 @@ class UserModel extends Model{
         else
         $sql = "INSERT INTO usuario VALUES (default,?,?,?,?);";
             $stmt = $this->conn->prepare ($sql);
-            $stmt -> BindValue(1, $_POST["username"], PDO::PARAM_STR);
+            $stmt -> BindValue(1, $_POST["Nom_usuario"], PDO::PARAM_STR);
             $stmt -> BindValue(2, $_POST["Contrasenia"], PDO::PARAM_STR);
-            $stmt -> BindValue(3, $_POST["Rol_usuario"], PDO::PARAM_STR);
-            $stmt -> BindValue(4, $_POST["Estatus"], PDO::PARAM_STR);
+            $stmt -> BindValue(3, $_POST["Estatus"], PDO::PARAM_STR);
+            $stmt -> BindValue(4, $_POST["Rol_usuario"], PDO::PARAM_STR);
             $stmt -> execute();
 
             $sql1 = "INSERT INTO personal 
@@ -105,11 +110,11 @@ class UserModel extends Model{
                 header("location: ?m=2");
         
         }
-    public function edit_usuario(){
+    public function editarUsuario(){
         print_r($_POST);
         if(empty($_POST["Estatus"]) 
         or empty($_POST["Contrasenia"]) 
-        or empty($_POST["username"]) 
+        or empty($_POST["Nom_usuario"]) 
         or empty($_POST["Tipo_de_usuario"])){
             header("location: ?m=1&id=".$_POST["id"]);
             exit;
@@ -119,7 +124,7 @@ class UserModel extends Model{
             SET
             estatus=?,
             contrasenia=?,
-            username=?,
+            nom_usuario=?,
             tipo_de_usuario=?
             WHERE
             id_usuario=?;
@@ -127,7 +132,7 @@ class UserModel extends Model{
         $stmt = $this->conn->prepare ($sql);
         $stmt -> BindValue(1, $_POST["Estatus"], PDO::PARAM_STR);
         $stmt -> BindValue(2, $_POST["Contrasenia"], PDO::PARAM_STR);
-        $stmt -> BindValue(3, $_POST["username"], PDO::PARAM_STR);
+        $stmt -> BindValue(3, $_POST["Nom_usuario"], PDO::PARAM_STR);
         $stmt -> BindValue(4, $_POST["Tipo_de_usuario"], PDO::PARAM_LOB);
         $stmt -> BindValue(7, $_POST["id"], PDO::PARAM_INT);
         
@@ -136,13 +141,13 @@ class UserModel extends Model{
         header("location: ?m=2&id=".$_POST["id"]);
     }
 
-    public function delete_producto($id){
-        $sql="DELETE  FROM usuario WHERE id_usuario=?";
+    public function eliminarUsuario($id){
+        $sql="UPDATE usuario SET estatus='0' WHERE id_usuario=?";
         $stmt = $this->conn->prepare ($sql);
         $stmt ->BindParam(1,$id);
         $stmt -> execute();
         $this->conn=null;
-        header("location: ?m=1");
+        header("location: ../Controllers/Sistema/con-userController.php?m=4");
     }
 
 }
