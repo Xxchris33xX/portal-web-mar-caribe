@@ -97,7 +97,7 @@
                               <label for="btn-modal-entrada" class="denegar"><i class='bx bx-x-circle'></i></label>
                               <h2>Registrar Entrada</h2><span class="botones">
                               <div class="Registrar-Entrada">
-                                <form action="" method="POST" class="form">
+                                <form action="<?php echo FOLDER_PATH.'/sistema/con_int/grabar'?>" method="POST" class="form">
                                   <div class="form-content">
                                     <!-- INPUT NOMBRE-->
                                     <div class="containerSelectProduct">
@@ -114,7 +114,7 @@
                                       <span class="form-line"></span>
                                     </div>
                                     <div class="form-group">
-                                    <input type="hidden" id="entrada" name="entrada" value="true">
+                                    <input type="hidden" id="grabar" name="grabar" value="entrada">
                                     <input type="submit" class="form-btn" value="Confirmar">
                                     </div>  
                                 </form>

@@ -16,7 +16,7 @@
     <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/boxicons-2.1.1/css/transformations.css" rel="stylesheet" type="text/css">
     <script>
         function eliminar(url){
-            if(confirm("¿Desea eliminar este producto?")){
+            if(confirm("¿Desea eliminar este usuario?")){
                 window.location=url;
             }
         }
@@ -68,8 +68,8 @@
                           <label class="botones-direc" for="log"><a name="log" id="log" href="con-logController.php?id=<?php echo $datos [$i] ["id_usuario"];?>"><i class='bx bx-history'></i></a></label>
                         </th>
                         <th>
-                            <label class="botones-direc" for="btn-modal-edit-user"><i class='bx bxs-edit'></i><span class="btn-editar"><a href="edt-userController.php?id=<?php echo $datos [$i] ["id_usuario"];?>">Editar</a></span></label>
-                            <label class="botones-direc" for="btn-modal-eliminar-user"><i class='bx bx-x'></i><span class="btn-eliminar"><a href="javascript:void(0);" title="Eliminar <?php echo $datos [$i] ["nombre"];?>" onclick=" eliminar ('../../helpers/deleteUser.php?id=<?php echo $datos [$i] ['id_usuario'];?>')">Eliminar</a></span></label>
+                            <label class="botones-direc" for="btn-modal-edit-user"><i class='bx bxs-edit'></i><span class="btn-editar"><a href="<?php echo FOLDER_PATH.'/sistema/edt_user//?id='. $datos [$i] ["id_usuario"];?>">Editar</a></span></label>
+                            <label class="botones-direc" for="btn-modal-eliminar-user"><i class='bx bx-x'></i><span class="btn-eliminar"><a href="javascript:void(0);" title="Eliminar <?php echo $datos [$i] ["nombre"];?>" onclick=" eliminar ('<?php echo FOLDER_PATH.'/sistema/con_user/eliminar/?id='. $datos [$i] ['id_usuario'];?>')">Eliminar</a></span></label>
                         </th>
                       </tr>
                       <?php

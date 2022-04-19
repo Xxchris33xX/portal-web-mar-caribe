@@ -84,8 +84,8 @@
                               <th><img height="75" width="auto" src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/img/Productos/<?php echo $datos [$i] ["imagen"];?>"> </th>
                               <th><?php echo $datos [$i] ["nom_estatus"];?></th>
                               <th>
-                                <label class="botones-direc" for="btn-modal-edit"><i class='bx bxs-edit'></i><span class="btn-editar"><a href="edt-proController.php?id=<?php echo $datos [$i] ["id_producto"];?>">Editar</a></span></label>
-                                <label class="botones-direc" for="btn-modal-eliminar"><i class='bx bx-x'></i><span class="btn-eliminar"><a href="javascript:void(0);" title="Eliminar <?php echo $datos [$i] ["nombre"];?>" onclick=" eliminar ('../../helpers/delete.php?id=<?php echo $datos [$i] ['id_producto'];?>')">Eliminar</a></span></label>
+                                <label class="botones-direc" for="btn-modal-edit"><i class='bx bxs-edit'></i><span class="btn-editar"><a href="<?php echo FOLDER_PATH.'/sistema/edt_pro//?id='. $datos [$i] ["id_producto"];?>">Editar</a></span></label>
+                                <label class="botones-direc" for="btn-modal-eliminar"><i class='bx bx-x'></i><span class="btn-eliminar"><a href="javascript:void(0);" title="Eliminar <?php echo $datos [$i] ["nombre"];?>" onclick=" eliminar ('<?php echo FOLDER_PATH.'/sistema/con_pro/eliminar/?id='. $datos [$i] ['id_producto'];?>')">Eliminar</a></span></label>
                               </th>
                             </tr>
                             <?php } ?>

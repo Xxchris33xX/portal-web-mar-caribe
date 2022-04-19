@@ -1,7 +1,7 @@
 <?php
 //print_r($_POST);
 //print_r($_GET);
-require_once 'Model.php';
+//require_once 'Model.php';
 class ProductModel extends Model
 {
     public function __construct()
@@ -46,7 +46,7 @@ class ProductModel extends Model
             return $row;
     }
 
-    public function getProduct_por_id($id){
+    public function mostrarProductoPorId($id){
         $sql="SELECT * FROM producto
         LEFT JOIN categoria 
         ON producto.categoria=categoria.id_categoria
@@ -72,10 +72,9 @@ class ProductModel extends Model
         or empty($_POST["Categoria"])
         or empty($_POST["Imagen"])
         or empty($_POST["Cantidad"]) 
-        or empty($_POST["Precio"])
-        or empty ($_POST["Estatus"]))
+        or empty($_POST["Precio"]))
         {
-            header("location: reg-proController.php?m=1");
+            header('location:'.FOLDER_PATH.'/sistema/reg_pro//?m=1');
             exit;
         }
         else
@@ -87,10 +86,10 @@ class ProductModel extends Model
         $stmt -> BindValue(4, $_POST["Precio"], PDO::PARAM_STR);
         $stmt -> BindValue(5, $_POST["Cantidad"], PDO::PARAM_STR);
         $stmt -> BindValue(6, $_POST["Categoria"], PDO::PARAM_STR);
-        $stmt -> BindValue(7, $_POST["Estatus"], PDO::PARAM_INT);
+        $stmt -> BindValue(7, '1', PDO::PARAM_INT);
         $stmt -> execute();
         $this->conn=null;
-        header("location: reg-proController.php?m=2");
+        header('location:'.FOLDER_PATH.'/sistema/reg_pro//?m=2');
     }
 
     public function editarProducto(){
@@ -99,7 +98,7 @@ class ProductModel extends Model
         or empty($_POST["Imagen"])
         or empty($_POST["Precio"]))
         {
-            header("location: edt-proController.php?m=1&id=".$_POST["id"]);
+            header('location:'.FOLDER_PATH.'/sistema/edt_pro//?m=1&id='.$_POST["id"]);
             exit;
         }
         else
@@ -120,7 +119,7 @@ class ProductModel extends Model
         if (empty($_POST["Categoria"]))
         {
             $this->conn=null;
-            header("location: edt-proController.php?m=2&id=".$_POST["id"]);
+            header('location:'.FOLDER_PATH.'/sistema/con_pro//?m=2&id='.$_POST["id"]);
         }else
         $sql1="UPDATE producto
             SET
@@ -133,7 +132,7 @@ class ProductModel extends Model
         $stmt1 -> BindValue(2, $_POST["id"], PDO::PARAM_INT);
         $stmt1 -> execute();
         $this->conn=null;
-        header("location: edt-proController.php?m=2&id=".$_POST["id"]);
+        header('location:'.FOLDER_PATH.'/sistema/edt_pro//?m=2&id='.$_POST["id"]);
     }
 
     public function eliminarProducto($id){
@@ -142,7 +141,7 @@ class ProductModel extends Model
         $stmt ->BindParam(1,$id);
         $stmt -> execute();
         $this->conn=null;
-        header("location: ../Controllers/Sistema/con-proController.php?m=4");
+        header('location:'.FOLDER_PATH.'/sistema/con_pro//?m=4');
     }  
 }
 ?>

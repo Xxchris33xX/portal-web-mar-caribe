@@ -1,7 +1,6 @@
 <?php
 //print_r($_POST);
 //print_r($_GET);
-require_once 'Model.php';
 class ContactsModel extends Model
 {
     public function __construct()

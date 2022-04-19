@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
-    <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/splide-4.0.1/dist/css/splide.min.css" rel="stylesheet" type="text/css">
-    <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/splide-4.0.1/dist/css/themes/splide-default.min.css" rel="stylesheet" type="text/css">
-    <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/styles/styles.css" rel="stylesheet" type="text/css">
-    <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/styles/ubicacion.css" rel="stylesheet" type="text/css">
-    <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/styles/info-styles.css" rel="stylesheet" type="text/css">
-    <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/boxicons-2.1.1/css/animations.css" rel="stylesheet" type="text/css">
-    <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/boxicons-2.1.1/css/boxicons.css" rel="stylesheet" type="text/css">
-    <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/boxicons-2.1.1/css/boxicons.min.css" rel="stylesheet" type="text/css">
-    <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/boxicons-2.1.1/css/transformations.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo PATH_ASSETS.'splide-4.0.1/dist/css/splide.min.css'?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo PATH_ASSETS.'splide-4.0.1/dist/css/themes/splide-default.min.css'?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo PATH_ASSETS.'styles/styles.css'?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo PATH_ASSETS.'styles/ubicacion.css'?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo PATH_ASSETS.'styles/info-styles.css'?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo PATH_ASSETS.'boxicons-2.1.1/css/animations.css'?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo PATH_ASSETS.'boxicons-2.1.1/css/boxicons.css'?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo PATH_ASSETS.'boxicons-2.1.1/css/boxicons.min.css'?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo PATH_ASSETS.'boxicons-2.1.1/css/transformations.css'?>" rel="stylesheet" type="text/css">
 </head>
 <body>
     <section class="page">
@@ -88,33 +88,16 @@
         </section>
         <?php require 'partials/shoppingCart.php' ?>
     </section>
-    <footer>
-        <div class="container-footer">
-            <div class="R-Sociales">
-                <h3>Redes sociales</h3>
-                <div class="Redes-sociales">
-                    <a><i class='bx bxl-facebook-square'></i></a>
-                    <a><i class='bx bxl-instagram'></i></a>
-                    <a><i class='bx bxl-twitter' ></i></a>
-                </div>
-            </div>
-            <div class="footer-About-Us">
-                    <h3><a href="../../Controllers/catalogo/aboutusController.php">Sobre Nosotros</a></h3>
-                    <p>Ubicación: <?php echo $contactos ["ubicacion_tienda"];?></p>
-                    <p>Teléfono: <?php echo $contactos ["telefono_tienda"];?></p>
-            </div>
-            <div class="footer">
-                <p>© MarCaribe 2022</p>
-            </div>
-        </div>
-    </footer>
-<script src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/splide-auto-scroll/dist/js/splide-extension-auto-scroll.js"></script>
-<script src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/splide-4.0.1/dist/js/splide.min.js"></script>
-<script src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/splide-4.0.1/dist/js/splide.js"></script>
-<script src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/slide/slide.js"></script>
-<script src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/slide/shop.js"></script>
-<script src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/slide/items.js"></script>
-<script src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/slide/search.js"></script>
+    
+    <?php require 'partials/footer.php' ?>
+
+<script src="<?php echo PATH_ASSETS.'splide-auto-scroll/dist/js/splide-extension-auto-scroll.js'?>"></script>
+<script src="<?php echo PATH_ASSETS.'splide-4.0.1/dist/js/splide.min.js'?>"></script>
+<script src="<?php echo PATH_ASSETS.'splide-4.0.1/dist/js/splide.js'?>"></script>
+<script src="<?php echo PATH_ASSETS.'slide/slide.js'?>"></script>
+<script src="<?php echo PATH_ASSETS.'slide/shop.js'?>"></script>
+<script src="<?php echo PATH_ASSETS.'slide/items.js'?>"></script>
+<script src="<?php echo PATH_ASSETS.'slide/search.js'?>"></script>
 
 </body>
 </html>

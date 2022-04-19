@@ -60,7 +60,7 @@
                           <label for="btn-modal-salida" class="denegar"><i class='bx bx-x-circle'></i></label>
                           <h2>Registrar Salida</h2><span class="botones">
                           <div class="Registrar-Salida">
-                            <form action="" method="POST" class="form">
+                            <form action="<?php echo FOLDER_PATH.'/sistema/con_out/grabar'?>" method="POST" class="form">
                               <div class="form-content">
                                 <!-- INPUT NOMBRE-->
                                 <div class="containerSelectProduct">
@@ -78,7 +78,7 @@
                                 </div>
                                 </div>
                                 <div class="form-group">
-                                <input type="hidden" id="salida" name="salida" value="true">
+                                <input type="hidden" id="grabar" name="grabar" value="salida">
                                 <input type="submit" class="form-btn" value="Confirmar">
                               </div>  
                             </form>

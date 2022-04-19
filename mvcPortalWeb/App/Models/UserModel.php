@@ -1,6 +1,5 @@
 <?php
 //print_r($_POST);
-require_once 'Model.php';
 class UserModel extends Model{
 
     private $r;
@@ -25,7 +24,7 @@ class UserModel extends Model{
             $this->conn=null;
     }
 
-    public function getUser_por_id($id){
+    public function mostrarUsuarioPorId($id){
         $sql="SELECT * FROM usuario 
         LEFT JOIN rol 
         ON usuario.rol_usuario=rol.id_rol
@@ -45,7 +44,7 @@ class UserModel extends Model{
             $this->conn=null;
     }
 
-    public function get_rol(){
+    public function mostrarRol(){
         $sql1="SELECT * FROM rol ; " ;
         foreach ($this->conn->query($sql1) as $row){
             $this->c[]=$row;
@@ -68,7 +67,7 @@ class UserModel extends Model{
         or ($_POST["Contrasenia"] !== $_POST["Contrasenia2"])
         )
         {
-            header("location: ?m=1");
+            header('location:'.FOLDER_PATH.'/sistema/reg_user//?m=1');
             exit;
         }
         else
@@ -107,7 +106,7 @@ class UserModel extends Model{
                 $stmt3 -> execute();
                 }
                 $this->conn=null;
-                header("location: ?m=2");
+                header('location:'.FOLDER_PATH.'/sistema/reg_user//?m=2');
         
         }
     public function editarUsuario(){
@@ -116,7 +115,7 @@ class UserModel extends Model{
         or empty($_POST["Contrasenia"]) 
         or empty($_POST["Nom_usuario"]) 
         or empty($_POST["Tipo_de_usuario"])){
-            header("location: ?m=1&id=".$_POST["id"]);
+            header('location:'.FOLDER_PATH.'/sistema/edt_user//?m=1&id='.$_POST["id"]);
             exit;
         }
         else
@@ -138,7 +137,7 @@ class UserModel extends Model{
         
         $stmt -> execute();
         $this->conn=null;
-        header("location: ?m=2&id=".$_POST["id"]);
+        header('location:'.FOLDER_PATH.'/sistema/edt_user//?m=2&id='.$_POST["id"]);
     }
 
     public function eliminarUsuario($id){
@@ -147,7 +146,7 @@ class UserModel extends Model{
         $stmt ->BindParam(1,$id);
         $stmt -> execute();
         $this->conn=null;
-        header("location: ../Controllers/Sistema/con-userController.php?m=4");
+        header('location:'.FOLDER_PATH.'/sistema/con_user//?m=4');
     }
 
 }

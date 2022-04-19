@@ -9,10 +9,10 @@ abstract class Model
     {
         try {
             $this -> conn = new PDO (
-            "pgsql:host=localhost; 
-            dbname=TiendaMarCaribeCenter", 
-            "admin", 
-            "admin");
+            'pgsql:host='.HOST.'; 
+            dbname='.DB_NAME, 
+            USER, 
+            PASSWORD);
             $this -> n = array();
             //echo "Se conecto a la base de datos";
             }

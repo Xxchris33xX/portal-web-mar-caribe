@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/styles/Sistema/menu.css" rel="stylesheet" type="text/css">
-    <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/styles/Sistema/dashboard.css" rel="stylesheet" type="text/css">
-    <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/boxicons-2.1.1/css/animations.css" rel="stylesheet" type="text/css">
-    <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/boxicons-2.1.1/css/boxicons.css" rel="stylesheet" type="text/css">
-    <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/boxicons-2.1.1/css/boxicons.min.css" rel="stylesheet" type="text/css">
-    <link href="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/boxicons-2.1.1/css/transformations.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo PATH_ASSETS.'styles/Sistema/menu.css'?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo PATH_ASSETS.'styles/Sistema/dashboard.css'?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo PATH_ASSETS.'boxicons-2.1.1/css/animations.css'?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo PATH_ASSETS.'boxicons-2.1.1/css/boxicons.css'?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo PATH_ASSETS.'boxicons-2.1.1/css/boxicons.min.css'?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo PATH_ASSETS.'boxicons-2.1.1/css/transformations.css'?>" rel="stylesheet" type="text/css">
 </head>
 <body>
     <!-- Menú -->
@@ -26,10 +26,11 @@
             </div>
             <div class="Dashboard">
                 <div class="Sistema-Productos">
+                <?php for($p=0;$p<sizeof($datos1);$p++){ $p; } ?>
                     <h3><?php echo $p;?></h3>
                     <i class='bx bx-basket'></i>
                     <p class="text">Productos registrados</p>
-                    <a href="../../controllers/sistema/con-proController.php"> Más información </a>
+                    <a href="<?php echo FOLDER_PATH.'/sistema/con_pro'?>"> Más información </a>
                 </div>
                 <div class="Sistema-Visitas">
                     <h3>44</h3>
@@ -40,7 +41,7 @@
                     <h3>44</h3>
                     <i class='bx bx-purchase-tag' ></i>
                     <p class="text">Ofertas activas</p>
-                    <a href="../../controllers/sistema/con-oferController.php"> Más información </a>
+                    <a href="<?php echo FOLDER_PATH.'/sistema/con-ofer'?>"> Más información </a>
                 </div>
                 <div class="Sistema-Informacion">
                     <span>Resumen de actividades</span>
@@ -49,13 +50,13 @@
                     <p class="text-2">Última conexión</p>
                     <p class="text-3">Última salida registrada</p>
 
-                    <form class="form-infouser1" method="POST" action="">
+                    <form class="form-infouser1" method="POST" action="<?php echo FOLDER_PATH.'/sistema/dashboard/grabar'?>">
                       <span class="info-user1">Ubicación:</span>
                       <input id="inputU" type="text" name="ubicacion" value="<?php echo $datos2 ["ubicacion_tienda"];?>" disabled>
                       <button id="btnConfirm" class="button-confirm" name="grabar" id="grabar" value="ubicacion" ><i class='bx bx-check-circle'></i></button>
                       <i id="btnEditinfo" class='bx bx-edit-alt'></i>
                     </form>
-                    <form class="form-infouser1" method="POST" action="">
+                    <form class="form-infouser1" method="POST" action="<?php echo FOLDER_PATH.'/sistema/dashboard/grabar'?>">
                       <span class="info-user1">Teléfono:</span>
                       <input id="inputT" type="text" name="telefono" value="<?php echo $datos2 ["telefono_tienda"];?>" disabled>
                       <button  class="button-confirm2" name="grabar" id="grabar" value="telefono"><i class='bx bx-check-circle'></i></button>
@@ -64,16 +65,17 @@
                 </div>
               <?php if($_SESSION['user']['rol_usuario'] == 1){ ?>
                 <div class="Sistema-Usuarios">
+                <?php for($i=0;$i<sizeof($datos);$i++){ $i; } ?>
                     <h3><?php echo $i;?></h3>
                     <i class='bx bx-user'></i>
                     <p class="text">Usuarios registrados</p>
-                    <a href="../../controllers/sistema/con-userController.php"> Más información </a>
+                    <a href="<?php echo FOLDER_PATH.'/sistema/con_user'?>"> Más información </a>
                 </div>
              <?php }?>
             </div>
       </section>
     </section> 
-  <script src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/slide/menu.js"></script>  
-  <script src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/slide/infoUserEdit.js"></script>      
+  <script src="<?php echo PATH_ASSETS.'slide/menu.js'?>"></script>  
+  <script src="<?php echo PATH_ASSETS.'slide/infoUserEdit.js'?>"></script>      
 </body>
 </html>

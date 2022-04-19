@@ -19,7 +19,7 @@
         <?php require 'partials/header.php' ?>
             <main>
                 <div class="shop-header">
-                    <div class="shop-header-item1"><h3><a href="../../Controllers/catalogo/homepageController.php">Inicio</a><span> / Catálogo</span></h3></div>
+                    <div class="shop-header-item1"><h3><a href="<?php echo FOLDER_PATH.'/catalogo/homepage'?>">Inicio</a><span> / Catálogo</span></h3></div>
                     <div class="shop-header-item2"><h1>Catálogo</h1></div>
                     <div class="shop-header-item3"><p>Mostrando todos los resultados</p></div>
                 </div>
@@ -115,41 +115,11 @@
                     <?php for($i=0;$i<sizeof($datos);$i++){ ?>
                         <div class="product">
                             <img src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/img/Productos/<?php echo $datos [$i] ["imagen"];?>" alt="" class="product__img">
-                            <h3><a class="product__title" href="../../Controllers/catalogo/productController.php?id=<?php echo $datos [$i] ["id_producto"];?>"><?php echo $datos [$i] ["nombre"];?></a></h3>
+                            <h3><a class="product__title" href="product//?id=<?php echo $datos [$i] ["id_producto"];?>"><?php echo $datos [$i] ["nombre"];?></a></h3>
                             <p class="producto__price"><span>$</span><?php echo $datos [$i] ["precio"];?></p>
                             <a class="boton-producto">AÑADIR AL CARRITO</i></a>
                         </div>
-                        <?php } ?>
-                        <div class="product">
-                            <img src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/img/Productos/Harina Pan.jpg" alt="" class="product__img">
-                            <h3><a class="product__title" href="../../Controllers/catalogo/productController.php?id=<?php echo $datos [$i] ["id_producto"];?>">Harina pan</a></h3>
-                            <p class="producto__price"><span>$</span>1.00</p>
-                            <a class="boton-producto">AÑADIR AL CARRITO</i></a>
-                        </div>
-                        <div class="product">
-                            <img src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/img/Productos/Harina Pan.jpg" alt="" class="product__img">
-                            <h3><a class="product__title" href="../../Controllers/catalogo/productController.php?id=<?php echo $datos [$i] ["id_producto"];?>">Harina pan</a></h3>
-                            <p class="producto__price"><span>$</span>1.00</p>
-                            <a class="boton-producto">AÑADIR AL CARRITO</i></a>
-                        </div>
-                        <div class="product">
-                            <img src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/img/Productos/Harina Pan.jpg" alt="" class="product__img">
-                            <h3><a class="product__title" href="../../Controllers/catalogo/productController.php?id=<?php echo $datos [$i] ["id_producto"];?>">Harina pan</a></h3>
-                            <p class="producto__price"><span>$</span>1.00</p>
-                            <a class="boton-producto">AÑADIR AL CARRITO</i></a>
-                        </div>
-                        <div class="product">
-                            <img src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/img/Productos/Harina Pan.jpg" alt="" class="product__img">
-                            <h3><a class="product__title" href="../../Controllers/catalogo/productController.php?id=<?php echo $datos [$i] ["id_producto"];?>">Harina pan</a></h3>
-                            <p class="producto__price"><span>$</span>1.00</p>
-                            <a class="boton-producto">AÑADIR AL CARRITO</i></a>
-                        </div>
-                        <div class="product">
-                            <img src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/img/Productos/Harina Pan.jpg" alt="" class="product__img">
-                            <h3><a class="product__title" href="../../Controllers/catalogo/productController.php?id=<?php echo $datos [$i] ["id_producto"];?>">Harina pan</a></h3>
-                            <p class="producto__price"><span>$</span>1.00</p>
-                            <a class="boton-producto">AÑADIR AL CARRITO</i></a>
-                        </div>
+                        <?php } ?>               
                     </div>    
                 </div>
             </main>
@@ -162,26 +132,9 @@
     </section>
     <!-- FIN PÁGINA -->
     <!-- FOOTER -->
-    <footer>
-        <div class="container-footer">
-            <div class="R-Sociales">
-                <h3>Redes sociales</h3>
-                <div class="Redes-sociales">
-                    <a><i class='bx bxl-facebook-square'></i></a>
-                    <a><i class='bx bxl-instagram'></i></a>
-                    <a><i class='bx bxl-twitter' ></i></a>
-                </div>
-            </div>
-            <div class="footer-About-Us">
-                    <h3><a href="../../Controllers/catalogo/aboutusController.php">Sobre Nosotros</a></h3>
-                    <p>Ubicación: <?php echo $contactos ["ubicacion_tienda"];?></p>
-                    <p>Teléfono: <?php echo $contactos ["telefono_tienda"];?></p>
-            </div>
-            <div class="footer">
-                <p>© MarCaribe 2022</p>
-            </div>
-        </div>
-    </footer>
+
+    <?php require 'partials/footer.php' ?>
+
     <script src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/slide/shop.js"></script>
     <script src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/slide/items.js"></script>
     <script src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/slide/search.js"></script>

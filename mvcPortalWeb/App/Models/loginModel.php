@@ -1,6 +1,5 @@
 <?php
-    require_once('BD_Conect.php');
-    include 'User.php';
+    include CORE .  'User.php';
     class usuarioDao extends Database
     {
         protected static $conexion;

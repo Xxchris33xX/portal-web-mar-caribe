@@ -28,7 +28,7 @@
           <span class="current-section">Registrar Usuarios</span>
         </div>
         <div class="Registrar-usuario">
-          <form class="form" method="POST">
+          <form class="form" method="POST" action="<?php echo FOLDER_PATH.'/sistema/reg_user/grabar'?>">
             <div class="form-content">
               <p class="formulario__input-error-name"  id="grupo__nombre">
                 El nombre tiene que contener más de 2 dígitos y solo puede contener letras.
@@ -78,7 +78,6 @@
                   <label for="" class="form-label categoria" type="text">Rol:
                     <select id="categorias" class="form-select" name="Rol_usuario">
                       <?php
-        $datos = $user -> get_rol();
         for($i=0;$i<sizeof($datos);$i++){ ?>
                         <option value="<?php echo $datos [$i] ["id_rol"];?>"><?php echo $datos [$i] ["nom_rol"];?></option>
                         <?php } ?>

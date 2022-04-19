@@ -38,7 +38,7 @@
 
         public static function Conectar(){
             try {
-                $conexion = new PDO("pgsql:host=localhost;dbname=TiendaMarCaribeCenter","admin","admin");
+                $conexion = new PDO('pgsql:host='.HOST.';dbname='.DB_NAME,USER,PASSWORD);
                 return $conexion;
                 echo 'conectó';
             }catch (PDOException $ex){

@@ -30,7 +30,7 @@ class InventoryModel extends ProductModel
         if(empty($_POST["Cantidad"]) 
         or empty ($_POST["id"]))
         {
-            header("location: con-intController.php?m=1");
+            header('location:'.FOLDER_PATH.'/sistema/con_int//?m=1');
             exit;
         }
         else
@@ -50,7 +50,7 @@ class InventoryModel extends ProductModel
         if(empty($_POST["Cantidad"]) 
         or empty ($_POST["id"]))
         {
-            header("location: con-outController.php?m=1");
+            header('location:'.FOLDER_PATH.'/sistema/con_out//?m=1');
             exit;
         }
         else
@@ -58,7 +58,7 @@ class InventoryModel extends ProductModel
         $this -> result = $this-> $value1 - $_POST["Cantidad"];
         if($this -> result < 0)
         {
-            header("location: con-outController.php?m=3");
+            header('location:'.FOLDER_PATH.'/sistema/con_out//?m=3');
             exit;
         }else
         $sql2 = "INSERT INTO salida VALUES (default,?,?,default);";
@@ -82,7 +82,15 @@ class InventoryModel extends ProductModel
         $stmt1 -> BindValue(2, $_POST["id"], PDO::PARAM_INT);
         $stmt1 -> execute();
         $this->conn=null;
-        
+        switch($_POST['grabar'])
+        {
+            case'entrada':
+            header('location:'.FOLDER_PATH.'/sistema/con_int//?m=3');
+            break;
+            case'salida':
+            header('location:'.FOLDER_PATH.'/sistema/con_out//?m=3');
+            break;
+        }
     }
 
     public function mostrarEntrada()

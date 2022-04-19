@@ -15,7 +15,7 @@
         <div class="fondo">
         </div>
         <div class="login">
-            <form id="loginForm" action="validation.php"  method="POST" class="form">
+            <form id="loginForm" action="<?php echo FOLDER_PATH.'/sistema/login/validation'?>"  method="POST" class="form">
                 <div id="errorLogin">
                     <i class='bx bxs-error'></i> <h3>Usuario o contraseña incorrecta</h3>
                 </div>
@@ -36,8 +36,8 @@
                 </div>  
             </form>
         </div>
-    <script src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/slide/jquery-3.6.0.min.js"></script>
-    <script src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/slide/Form.js"></script>
-    <script src="/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/Assets/js/app.js"></script>
+    <script src="<?php echo PATH_ASSETS.'slide/jquery-3.6.0.min.js'?>"></script>
+    <script src="<?php echo PATH_ASSETS.'slide/Form.js'?>"></script>
+    <script src="<?php echo PATH_ASSETS.'js/app.js'?>"></script>
     </body>
 </html>

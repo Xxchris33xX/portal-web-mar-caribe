@@ -1,12 +1,9 @@
 <?php
-spl_autoload_register(function($clase)
-{
-    if (is_file(CORE. "$clase.php"))
-    {
-        require CORE. "$clase.php";
-    }else{
-        echo "No se encontro $clase.php";
-    }
+defined('BASEPATH') or exit('No se permite acceso directo');
+spl_autoload_register(function ($class) {
+  if(is_file(CORE . "$class.php"))
+    return require CORE . "$class.php";
+  if(is_file(HELPER_PATH . "$class.php"))
+    return require HELPER_PATH . "$class.php";
 });
-
 ?>

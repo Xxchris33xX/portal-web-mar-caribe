@@ -11,7 +11,7 @@ $(document).ready(function(){
             },
             success: function(response) {
                 if (response.estado == true) {
-                    window.location.href = "../../Controllers/sistema/dashboardController.php";
+                    window.location.href = "/Github MarCaribe/Portal-Web-Mar-Caribe-Center/mvcPortalWeb/sistema/dashboard";
                 }else{
                     let errorLogin = document.getElementById('errorLogin');
                     errorLogin.classList.add('active');
