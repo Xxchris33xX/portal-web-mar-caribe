@@ -27,17 +27,17 @@ define ('CORE', 'Config/Core/');
 // Valores de base de datos
 /////////////////////////////////////
 
-define('HOST', 'localhost');
+/*define('HOST', 'localhost');
 define('USER', 'admin');
 define('PASSWORD', 'admin');
 define('DB_NAME', 'TiendaMarCaribeCenter');
+*/
 
-/*
 define('HOST', 'localhost');
 define('USER', 'root');
 define('PASSWORD', 'root');
 define('DB_NAME', 'tiendamarcaribecenter');
-*/
+
 
 //////////////////////////////////////
 // Valores configuracion

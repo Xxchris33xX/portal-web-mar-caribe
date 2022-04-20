@@ -63,7 +63,7 @@
                                   </form>
                                   </th>
                                   <th>
-                                    <label class="botones-direc" for="btn-modal-eliminar"><i class='bx bx-x'></i><span class="btn-eliminar"><a href="javascript:void(0);" title="Eliminar <?php echo $datos [$i] ["nom_categoria"];?>" onclick=" eliminar ('<?php echo FOLDER_PATH.'/sistema/con_cat/eliminar/?id='. $datos [$i] ['id_categoria'];?>')">Eliminar</a></span></label>
+                                    <label class="botones-direc"><a class="btn-actions" href="javascript:void(0);" title="Eliminar <?php echo $datos [$i] ["nom_categoria"];?>" onclick=" eliminar ('<?php echo FOLDER_PATH.'/sistema/con_cat/eliminar/?id='. $datos [$i] ['id_categoria'];?>')"><i class='bx bx-x'></i><span class="btn-eliminar">Eliminar</a></span></label>
                                   </th>
                                 </tr>
                                 <?php } ?>
@@ -86,7 +86,7 @@
                           <input type="checkbox" id="btn-modal-entrada">
                           <section class="modal-entrada" id="modal-edit">
                             <div class="modal-contenedor">
-                              <label for="btn-modal-entrada" class="denegar"><i class='bx bx-x-circle'></i></label>
+                              <label for="btn-modal-entrada" class="denegar"><i class='bx bx-x-circle closeBtnCat'></i></label>
                               <h2>Registrar Categoria</h2><span class="botones">
                               <div class="Registrar-Entrada">
                                 <form action="<?php echo FOLDER_PATH.'/sistema/con_cat/grabar'?>" class="form" method="POST">

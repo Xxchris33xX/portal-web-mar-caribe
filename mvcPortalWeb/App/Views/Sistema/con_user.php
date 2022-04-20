@@ -68,8 +68,8 @@
                           <label class="botones-direc" for="log"><a name="log" id="log" href="con-logController.php?id=<?php echo $datos [$i] ["id_usuario"];?>"><i class='bx bx-history'></i></a></label>
                         </th>
                         <th>
-                            <label class="botones-direc" for="btn-modal-edit-user"><i class='bx bxs-edit'></i><span class="btn-editar"><a href="<?php echo FOLDER_PATH.'/sistema/edt_user//?id='. $datos [$i] ["id_usuario"];?>">Editar</a></span></label>
-                            <label class="botones-direc" for="btn-modal-eliminar-user"><i class='bx bx-x'></i><span class="btn-eliminar"><a href="javascript:void(0);" title="Eliminar <?php echo $datos [$i] ["nombre"];?>" onclick=" eliminar ('<?php echo FOLDER_PATH.'/sistema/con_user/eliminar/?id='. $datos [$i] ['id_usuario'];?>')">Eliminar</a></span></label>
+                            <label class="botones-direc"><a class="btnActions" href="<?php echo FOLDER_PATH.'/sistema/edt_user//?id='. $datos [$i] ["id_usuario"];?>"><i class='bx bxs-edit'></i><span class="btn-editar">Editar</a></span></label>
+                            <label class="botones-direc"><a class="btnActions" href="javascript:void(0);" title="Eliminar <?php echo $datos [$i] ["nombre"];?>" onclick=" eliminar ('<?php echo FOLDER_PATH.'/sistema/con_user/eliminar/?id='. $datos [$i] ['id_usuario'];?>')"><i class='bx bx-x'></i><span class="btn-eliminar">Eliminar</a></span></label>
                         </th>
                       </tr>
                       <?php

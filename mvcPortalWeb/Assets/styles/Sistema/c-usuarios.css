@@ -44,7 +44,7 @@
 .table tbody tr th .bx-x{
   font-size:35px;
   color: red;
-  margin-left: 20%;
+  margin-left: 10%;
 }
 
 .table tbody tr th .bxs-edit{
@@ -135,4 +135,9 @@
 .botones-direc span a{
   text-decoration: none;
   color:inherit;
+}
+
+.btnActions{
+  display: flex;
+  text-decoration: none;
 }

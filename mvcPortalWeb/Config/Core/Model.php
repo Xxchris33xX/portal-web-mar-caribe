@@ -9,7 +9,7 @@ abstract class Model
     {
         try {
             $this -> conn = new PDO (
-            'pgsql:host='.HOST.'; 
+            'mysql:host='.HOST.'; 
             dbname='.DB_NAME, 
             USER, 
             PASSWORD);

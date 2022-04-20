@@ -39,6 +39,9 @@
               <p class="formulario__input-error-name" id="grupo__usuario">
                 El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.
               </p>
+              <p class="formulario__input-error-name" id="grupo__cedula">
+                La cédula únicamente puede contener carácteres numéricos.
+              </p>
               <div class="form-group-contact">
                   <!-- INPUT NOMBRE -->
                   <div class="form-div">
@@ -64,15 +67,6 @@
                 </div>
               </div>
               <div class="form-group-contact">
-                <!-- INPUT ESTADO -->
-                <div class="form-div">
-                    <label for="" class="form-label" type="text">Estado:</label>
-                    <label class="switch">
-                        <input type="hidden" name="Estatus" value="0">
-                        <input type="checkbox" name="Estatus" value="1" checked>
-                        <span class="slider"></span>
-                    </label>
-                </div>  
                 <!-- INPUT ROL -->
                 <div class="form-div">
                   <label for="" class="form-label categoria" type="text">Rol:

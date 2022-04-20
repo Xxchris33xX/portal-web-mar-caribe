@@ -111,7 +111,7 @@
   }
   
   /* MODAL EDITAR */
-  
+
   #btn-modal-edit, #btn-modal-edit-user, #btn-modal-descripción,#btn-modal-user,#btn-modal-historial{
     display: none;
   }
@@ -154,6 +154,10 @@
     border-radius: 1em;
   }
   
+.Consultar-Producto .modal-descripción .modal-contenedor{
+  position:relative;
+}
+
   .Consultar-Producto .modal-edit .modal-contenedor h2,
   .Consultar-Producto .modal-descripción .modal-contenedor h2,
   .Consultar-usuario .modal-edit .modal-contenedor h2,
@@ -220,7 +224,7 @@
     box-sizing: border-box;
     font-size: 45px;
     position: absolute;
-    margin-left:44%;
+    margin-left:41%;
    }
   .Consultar-Producto .modal-edit .modal-contenedor .confirmar,
   .Consultar-usuario .modal-edit .modal-contenedor .confirmar,
@@ -538,6 +542,7 @@
     background-color: #fff;
     padding: 0 1.5em 2.5em 1.5em;
     border-radius: 1em;
+    position:relative;
   }
   
   .modal-entrada .modal-contenedor h2{
@@ -584,7 +589,7 @@
     font-size: 45px;
     position: absolute;
     padding-top: 1%;
-    margin-left: 44%;
+    margin-left: 86%;
    }
   .modal-entrada .modal-contenedor .confirmar{
     border: thin solid  rgb(14, 219, 219);
@@ -745,6 +750,7 @@
   background-color: #fff;
   padding: 0 1.5em 2.5em 1.5em;
   border-radius: 1em;
+  position: relative;
 }
 
 .modal-salida .modal-contenedor h2{
@@ -791,7 +797,7 @@
   font-size: 45px;
   position: absolute;
   padding-top: 1%;
-  margin-left: 44%;
+  margin-left: 86%;
  }
 .modal-salida .modal-contenedor .confirmar{
   border: thin solid  rgb(14, 219, 219);
@@ -937,4 +943,12 @@ margin-top: 5%;
 }
 .form-btn:hover{
   background-color: #0b47fd;
+}
+
+.Consultar-usuario .modal-edit .modal-contenedor{
+  position:relative;
+}
+
+.modal-entrada .modal-contenedor .denegar .bx-x-circle.closeBtnCat{
+  font-size:45px;
 }

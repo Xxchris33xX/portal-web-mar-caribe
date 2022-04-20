@@ -7,6 +7,7 @@ const expresiones = {
 	nombre: /^[a-zA-ZÀ-ÿ\s]{2,40}$/, // Letras y espacios, pueden llevar acentos.
 	direccion: /^[a-zA-ZÀ-ÿ0-9\s\.\_\-]{4,40}$/, //Letras, espacios, guion y guion_bajo. Pueden llevar acentos.
 	cantidad: /^[0-9]{1,2}$/, // 1 a 2 digitos.
+	cedula: /^[0-9]{1,8}$/, // Cédula
 	precio: /^[0-9]{0,2}$/, // 1 a 4 digitos.
 	password: /^.{4,12}$/, // 4 a 12 digitos.
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
@@ -16,17 +17,17 @@ const expresiones = {
 
 const validarFormulario = (e) => {
 	switch (e.target.name) {
-		case "nombre":
+		case "Nombre":
 			validarCampo(expresiones.nombre, e.target, 'nombre');
 		break;
+		case "Apellido":
+			validarCampo(expresiones.nombre, e.target, 'apellido');
+        break;
 		case "usuario":
 			validarCampo(expresiones.usuario, e.target, 'usuario');
         break;
-        case "producto":
+        case "Nom_producto":
             validarCampo(expresiones.productos, e.target, 'producto');
-		break;
-		case "apellido":
-            validarCampo(expresiones.productos, e.target, 'apellido');
 		break;
 		case "codigo":
             validarCampo(expresiones.productos, e.target, 'codigo');
@@ -46,29 +47,32 @@ const validarFormulario = (e) => {
 		case "edit-salidaNombre":
             validarCampo(expresiones.productos, e.target, 'salidaNombreEdit');
 		break;
-		case "precio":
+		case "Precio":
             validarCampo(expresiones.precio, e.target, 'precio');
 		break;
-		case "cantidad":
+		case "Cantidad":
             validarCampo(expresiones.cantidad, e.target, 'cantidad');
 		break;
 		case "nombre":
 			validarCampo(expresiones.nombre, e.target, 'nombre');
 		break;
-		case "password":
+		case "Contrasenia":
 			validarCampo(expresiones.password, e.target, 'password');
 			validarPassword2();
 		break;
-		case "password2":
+		case "Contrasenia2":
 			validarPassword2();
 		break;
-		case "direccion":
+		case "Direccion":
 			validarCampo(expresiones.direccion, e.target, 'direccion');
 		break;
-		case "correo":
+		case "Correo":
 			validarCampo(expresiones.correo, e.target, 'correo');
 		break;
-		case "telefono":
+		case "Cedula":
+			validarCampo(expresiones.cedula, e.target, 'cedula');
+		break;
+		case "Telefono":
 			validarCampo(expresiones.telefono, e.target, 'telefono');
 		break;
 	}

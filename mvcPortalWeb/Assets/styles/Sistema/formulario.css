@@ -29,6 +29,10 @@
     text-align: center;
   }
 
+  .form .form-content .form-group.category{
+    padding-bottom: 5%;
+  }
+
   .form .form-content .form-group.formulario__grupo-incorrecto{
     color: #bb2929;
   }

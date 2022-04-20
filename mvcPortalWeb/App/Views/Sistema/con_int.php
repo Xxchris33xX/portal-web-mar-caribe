@@ -107,11 +107,12 @@
                                       <?php } ?>
                                     </select>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group" id="grupo__cantidad">
                                       <!-- INPUT CANTIDAD -->
                                       <input type="number" class="form-input" name="Cantidad" placeholder=" ">
                                       <label for="" class="form-label" type="number">Cantidad:</label>
                                       <span class="form-line"></span>
+                                      <p class="formulario__input-error">Ingresar únicamente dígitos numéricos.</p>
                                     </div>
                                     <div class="form-group">
                                     <input type="hidden" id="grabar" name="grabar" value="entrada">

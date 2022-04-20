@@ -37,7 +37,7 @@
                     <p class="formulario__input-error">El producto tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
                   </div>
                   <!-- CATEGORIAS -->
-                  <div class="form-group">
+                  <div class="form-group category">
                     <label for="" class="form-label categoria" type="text">Categoría:
                       <select id="categorias" class="form-select" name="Categoria">
                       <?php
