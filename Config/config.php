@@ -9,13 +9,13 @@ define('URI', $_SERVER['REQUEST_URI']);
 // Valores de RUTAS
 /////////////////////////////////////
 define('HOSTING', 'http://localhost');
-define('FOLDER_PATH', '/mvcPortalWeb');
+define('FOLDER_PATH', '/portal-web-mar-caribe');
 define ('PATH_CONTROLLERS', 'App/Controllers/');
-define ('PATH_MODELS', '/mvcPortalWeb/App/Models/');
-define ('PATH_ASSETS', '/mvcPortalWeb/Assets/');
-define ('PATH_VIEWS', '/mvcPortalWeb/App/Views/');
+define ('PATH_MODELS', '/portal-web-mar-caribe/App/Models/');
+define ('PATH_ASSETS', '/portal-web-mar-caribe/Assets/');
+define ('PATH_VIEWS', '/portal-web-mar-caribe/App/Views/');
 define ('ROOT', $_SERVER['DOCUMENT_ROOT']);
-define('HELPER_PATH', '/mvcPortalWeb/Config/helpers/');
+define('HELPER_PATH', '/portal-web-mar-caribe/Config/helpers/');
 
 //////////////////////////////////////
 // Valores de CORE
