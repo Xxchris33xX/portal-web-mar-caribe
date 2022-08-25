@@ -1,0 +1,150 @@
+
+
+/* TABLA */
+
+/*TABLA*/
+
+.Consultar-Producto{
+  display: grid;
+  grid-template-columns: auto;
+}
+
+/*.table{
+  border-collapse: collapse;
+  margin: 25px 5px;
+  font-size: 0.9em;
+  font-family: 'Poppins', sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  display: block;
+  overflow-y: scroll;
+  height: 700px;
+  border-radius: 4px 2px;
+}
+
+.table::-webkit-scrollbar{
+  width: 5px;
+  color: #ffffff;
+}
+
+.table::-webkit-scrollbar-track {
+  background: #ffffff;;
+}
+
+.table::-webkit-scrollbar-thumb{
+  background: #009879;
+  border-radius: 5px;
+}
+
+.table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+}
+
+.table tbody tr th .bx-x{
+  font-size:35px;
+  color: red;
+  margin-left: 10%;
+}
+
+.table tbody tr th .bxs-edit{
+  font-size:35px;
+  color: chartreuse;
+}
+
+.table th,
+.table td {
+    padding: 12px 15px;
+    width: 24%;
+}
+
+.table td {
+  height: 10px;
+}
+
+.table tbody tr {
+  border-bottom: thin solid #dddddd;
+}
+
+.table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}*/
+
+/* BOTONES TABLA */
+
+.btn-editar,.bx-x .btn-eliminar{
+  font-size: 0.7em;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-editar{
+  align-self: center;
+  font-size: 1.3em;
+  color: chartreuse;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-eliminar{
+  align-self: center;
+  font-size: 1.3em;
+  color: red;
+  font-family: 'Poppins', sans-serif;
+}
+
+.botones-direc{
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.botones-direc:hover{
+  opacity: 0.5;
+}
+
+.botones-direc:active{
+  opacity: 1;
+}
+.bxs-book-content{
+  font-size: 35px;
+  color: chartreuse;
+}
+
+.bx-history{
+  font-size: 35px;
+  color: #3866f2;
+}
+
+.table.historial{
+  width: 500px;
+}
+
+.table.historial th, .table.historial td{
+  width: 10%;
+  
+}
+
+.botones-direc span a{
+  text-decoration: none;
+  color:inherit;
+}
+
+.btnActions{
+  display: flex;
+  text-decoration: none;
+}
+
+.btnCopiar{
+  margin-left: 5px;
+  font-size: 18px;
+  padding: revert;
+  background-color: greenyellow;
+}
