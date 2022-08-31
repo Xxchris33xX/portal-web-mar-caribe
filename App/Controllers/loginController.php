@@ -13,7 +13,7 @@ class loginController extends Controller
 {
     
     private $model;
-    private $captcha_private_key = '6LfRrrggAAAAALNG1-kv1-dXPw4KuNlh08xoqhc-';
+    private $captcha_private_key = '';
     public $contactos;
     public $username;
     public $password;
